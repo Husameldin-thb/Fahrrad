@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQs</title>
+    <link rel = "stylesheet" href = "styleSheet.css">
+</head>
+<body>
+<section>
+    <div class = "container">
+        <div class = "accordion">
+            <div class = "accordion-item" id = "frage1">
+                <a class = "accordion-link" href = "#frage1">
+                    WIE KÖNNEN WIR IHNEN HELFEN ?
+                </a>
+            </div>
+
+            <div class = "accordion-item" id = "frage2">
+                <a class = "accordion-link" href = "#frage2">
+                    Ich habe Schwierigkeiten, mich in mein Konto einzuloggen.
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+
+                    <p>
+                        Wenn Sie sich nicht einloggen können oder die E-Mail zum Zurücksetzen Ihres Passworts nicht erhalten.
+                        Wir bitten Sie, sich mit uns in Verbindung zu setzen.
+                        Ein Berater kann Ihnen direkt weiterhelfen.
+                    </p>
+
+
+                </div>
+
+                    <div class = "accordion-item" id = "frage4">
+                <a class = "accordion-link" href = "#frage4">
+                    Wie erstelle ich mein Konto?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+
+                <div class = "answer">
+                    <p>
+                    Ich erstelle ein Konto:
+                  <p>
+                    Schritt 1: Ich klicke auf die Registerkarte "Mein Konto", die sich in der oberen rechten Ecke des
+                    Bildschirms befindet.<br>
+                    Schritt 2: Ich wähle den Reiter "Ihr Konto erstellen".<br>
+                    Schritt 3: Ich gebe meine E-Mail-Adresse an, die mein Benutzername sein wird, und bestätige.<br>
+                    Schritt 4: Ich erstelle ein Passwort (unter Beachtung der Sicherheitsanforderungen: mindestens ein
+                    Großbuchstabe, mindestens ein Kleinbuchstabe usw.) und bestätige.<br>
+                    Schritt 5: Ich fülle meine Informationen aus (Name, Vorname usw.) und bestätige.
+                    </p>
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage5">
+                <a class = "accordion-link" href = "#frage5">
+                    Meine Bestellung stornieren
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    Dieser Antrag kann vom Kunden nur gestellt werden, wenn der Status der Bestellung dies zulässt.
+                    <p>
+                        Schritt 1: Ich logge mich in mein Kundenkonto ein.<br>
+                        Schritt 2: Wenn ich mich in meinem Dashboard befinde, klicke ich auf "Meine Einkäufe" (standardmäßig wird meine letzte Bestellung angezeigt).<br>
+                        Schritt 3: Ich wähle die betreffende Bestellung aus und klicke auf "Meine Bestellung stornieren". Wenn diese Schaltfläche nicht erscheint, ist meine Bestellung bereits in Vorbereitung, der Status erlaubt es mir also nicht mehr.<br>
+                        In diesem Fall kontaktiere ich den Kundenservice und gebe die Nummer meiner Bestellung an, die mit FR beginnt, damit sie mein Paket stornieren oder den Spediteur um die Rücksendung bitten können.
+
+                    </p>
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage6">
+                <a class = "accordion-link" href = "#frage6">
+                    Wie lange vor der Buchung kann ich reservieren?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                   <p>
+                    Sie können Ihre Fahrradvermietung bis zu 24 Stunden vor dem Tag der Dienstleistung buchen, solange der Vorrat reicht.
+                   </p>
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage7">
+                <a class = "accordion-link" href = "#frage7">
+                    Ist Zubehör wie Helme, Kindersitze oder Anhänger im Preis inbegriffen?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    Nein, wir bieten keine Ersatzteile und Zubehör an.
+                    </p>
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage8">
+                <a class = "accordion-link" href = "#frage8">
+                    Welche Zahlungsarten werden akzeptiert?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    wir akzeptieren die meisten nationalen und internationalen Kreditkarten, einschließlich :
+
+                    <p> - Mastercard
+
+                        ,Visa
+
+                        ,iDeal & Sofort
+
+                    <p> Für jede andere Karte oder Zahlungsmethode können Sie sich montags bis samstags von 09:00 bis 18:00 Uhr unter "Kontakt" an das Verkaufsteam wenden.
+
+                    </p>
+
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage9">
+                <a class = "accordion-link" href = "#frage9">
+                    Wie kann ich mein(e) Fahrrad(e) im Geschäft abholen?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    Gehen Sie am Tag des Beginns Ihrer Reservierung mit Ihrer Reservierungsnummer, einem gültigen Ausweisdokument und einem Zahlungsmittel für die Kaution zum Verleiher, um Ihre Fahrräder abzuholen, dessen Kontaktdaten Ihnen per E-Mail mitgeteilt wurden.
+                        Bei Problemen/Fragen zu Ihrer Buchung können Sie sich gerne an uns wenden.
+                    </p>
+                </div>
+            </div>
+
+            <div class = "accordion-item" id = "frage10">
+                <a class = "accordion-link" href = "#frage10">
+                    Wie organisiere ich eine Lieferung?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    Bei der Buchung können Sie eine Leistung "in Lieferung" auswählen.
+                    Sie können dann den Ort und die Zeit für die Abgabe und Abholung der Fahrräder festlegen.
+                    Diese Informationen, insbesondere die Angaben zu den Lieferzeiten, sind unverbindlich und können aus verschiedenen Gründen (Wetter, Verkehr, Organisation der Touren) geändert werden.
+                    </p>
+                </div>
+            </div>
+
+                 <div class="accordion-item" id= "frage3">
+                    <a class= "accordion-link" href = "#frage3">
+                        Wie sind die Fahrräder versichert?
+                        <i class="icon ion-md-add"></i>
+                        <i class = "icon ion-md-remove"></i>
+                    </a>
+                    <div class = "answer">
+                        <p>
+                            Ihre Fahrräder (egal ob Dienstfahrrad oder Flottenfahrrad) sind rund um die Uhr und unabhängig davon,
+                            wo sie abgestellt sind (einschließlich öffentlicher Straßen), gegen Diebstahl und Bruch versichert.
+                            Das Einzige, was wir von den Arbeitnehmern verlangen: das Fahrrad mit einem U-Schloss an einem festen Punkt anzuschließen
+                        <p>
+                    </div>
+
+
+                    <div class = "accordion-item" id = "frage11">
+                <a class = "accordion-link" href = "#frage11">
+                    WIE KÖNNEN WIR IHNEN WEITER HELFEN?
+                    <i class = "icon ion-md-add"></i>
+                    <i class = "icon ion-md-remove"></i>
+                </a>
+                <div class = "answer">
+                    <p>
+                    Rufen Sie oder schreiben Sie uns unter "Kontakt"
+                </div>
+               </div>
+
+                </div>
+            </div>
+</section>
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
