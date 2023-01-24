@@ -32,6 +32,7 @@
 
 };*/
 
+//Verfügbarkeit prüfen auf index.html mit Übergabe der Werte des jeweiligen Fahrradtyps
 function checkAvailability(bike_id) {
     let availability = {
         id: bike_id,

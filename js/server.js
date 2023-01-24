@@ -98,6 +98,20 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 	let counter = 0; //Fahrradbestand
 	let result = new Array ();
 	console.log(req.body);
+	db.each(`SELECT SUM(number) FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
+		if (error) {
+			throw new Error(error.message);
+		}
+		i = row;
+		console.log(row);
+	});
+});
+
+/*app.post('/api/v1/checkAvailability', (req, res) => {
+	let i = 0; //Index-Durchzähler
+	let counter = 0; //Fahrradbestand
+	let result = new Array ();
+	console.log(req.body);
 	switch(req.body.id) {
 		case 1:
 			if(bike_01.length == 0){
@@ -234,7 +248,7 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 			}
 	}
 	console.log("Sent");
-});
+});*/
 
 //Session-Handling
 app.post('/api/v1/session', (req, res) => {
