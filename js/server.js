@@ -98,13 +98,19 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 	let counter = 0; //Fahrradbestand
 	let result = new Array ();
 	console.log(req.body);
-	db.each(`SELECT SUM(number) FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
+	db.each(`SELECT SUM(number) AS counter FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
 		i = row;
 		console.log(row);
 	});
+	if(i.counter > 9){
+		return res.send("0");
+	}
+	else{
+		sessionHandler.push(req.body.data, 10-i.counter, req.body.id);
+	}
 });
 
 /*app.post('/api/v1/checkAvailability', (req, res) => {
