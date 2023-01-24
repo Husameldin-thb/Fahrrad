@@ -288,6 +288,7 @@ app.post('/api/v1/booking', (req, res) => {
 	let i = 0;
 	db.each(`SELECT * FROM customers WHERE email = ${req.body.email}`, (error, row) => {
 		if (error) {
+			i = 1;
 			throw new Error(error.message);
 		}
 		console.log(row);
