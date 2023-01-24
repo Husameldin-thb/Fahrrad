@@ -303,7 +303,7 @@ app.post('/api/v1/booking', (req, res) => {
 			//Customer ID schon vorhanden
 			//bike_id, number, date bei dem Customer einfügen
 			db.run(
-				`INSERT INTO customers (customer_id, name, email, password) VALUES (?, ?, ?)`, 
+				`INSERT INTO customers (customer_id, name, email, password) VALUES (?, ?, ?, ?)`, 
 				[userid, req.body.name, req.body.email, req.body.password],
 				function (error) {
 					if (error) {
@@ -313,7 +313,7 @@ app.post('/api/v1/booking', (req, res) => {
 				}
 			);
 			db.run(
-				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?)`, 
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?, ?, ?)`, 
 				[booking_id, sessionHandler[2], sessionHandler[0], req.body.number, userid],
 				function (error) {
 					if (error) {
@@ -327,7 +327,7 @@ app.post('/api/v1/booking', (req, res) => {
 		}
 		else{
 			db.run(
-				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?)`, 
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?, ?, ?)`, 
 				[booking_id, sessionHandler[2], sessionHandler[0], req.body.number, row[0]],
 				function (error) {
 					if (error) {
