@@ -14,7 +14,7 @@ function createDbConnection() {
 
 function createTable(db) {
     db.exec(`
-        CREATE TABLE customers (
+        CREATE TABLE IF NOT EXISTS customers (
             customer_id INTEGER NOT NULL PRIMARY KEY,
             name VARCHAR(50) NOT NULL,
             email VARCHAR(50) NOT NULL,
@@ -22,7 +22,7 @@ function createTable(db) {
         );
     `);
     db.exec(`
-        CREATE TABLE bookings (
+        CREATE TABLE IF NOT EXISTS bookings (
             bookings_id INTEGER NOT NULL,
             bike_id INTEGER NOT NULL,
             booking_date VARCHAR(50) NOT NULL,
@@ -35,13 +35,3 @@ function createTable(db) {
 }
 
 module.exports = createDbConnection();
-
-/*CREATE TABLE bookings (
-    bookings_id INTEGER NOT NULL,
-    bike_id INTEGER NOT NULL,
-    booking_date VARCHAR(50) NOT NULL,
-    number INTEGER NOT NULL,
-    customer_id INTEGER NOT NULL,
-    PRIMARY KEY (bookings_id),
-    FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
-)*/
