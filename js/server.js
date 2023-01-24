@@ -108,7 +108,7 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		return res.send("0");
 	}
 	else{
-		sessionHandler.push(req.body.data, 10-i.counter, req.body.id);
+		sessionHandler.push(req.body.data, 10-number.counter, req.body.id);
 		return res.send("1");
 	}
 });
