@@ -285,22 +285,21 @@ app.post('/api/v1/session', (req, res) => {
 app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
 	console.log(sessionHandler);
-	let i = 0;
+	//let i = 0;
 	db.each(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
 		if (error) {
 			i = 1;
 			throw new Error(error.message);
 		}
+		let i = row;
 		console.log(row);
-		i = 1;
-		console.log(i);
 	});
 	if(req.body.number > sessionHandler[1]){
 		sessionHandler.length = 0;
 		return res.send("0")
 	}
 	else{
-		if(i == 1){
+		if(!i){
 			//Customer ID schon vorhanden
 			//bike_id, number, date bei dem Customer einfügen
 			db.run(
