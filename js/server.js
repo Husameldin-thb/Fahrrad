@@ -286,10 +286,10 @@ app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
 	console.log(sessionHandler);
 	let i = 0;
-	db.each(`SELECT * FROM customers WHERE email = ${req.body.email}`, (error, row) => {
-		if (error) {
+	db.each(`SELECT * FROM customers WHERE email = ${req.body.email}`, (row) => {
+		/*if (error) {
 			throw new Error(error.message);
-		}
+		}*/
 		console.log(row);
 	});
 	if(req.body.number > sessionHandler[1]){
