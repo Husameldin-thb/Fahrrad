@@ -107,6 +107,10 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 	if(number.counter > 9){
 		return res.send("0");
 	}
+	else if(number.counter == undefined){
+		sessionHandler.push(req.body.data, 10, req.body.id); 
+		return res.send("1");
+	}
 	else{
 		sessionHandler.push(req.body.data, 10-number.counter, req.body.id);
 		return res.send("1");
