@@ -3,9 +3,10 @@ let uuidv4 = uuid.v4;
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
+let db = require("./db");
 
 let idCounter = 0;
-let booking_id = 0;
+let booking_id = 1;
 let customers = new Array ();
 let malebike = new Array ();
 let bike_01 = new Array ();
@@ -15,6 +16,7 @@ let bike_04 = new Array ();
 let bike_05 = new Array ();
 let bike_06 = new Array ();
 let sessionHandler = new Array ();
+let userid = 1;
 
 app.use(bodyParser.urlencoded({enxtended: true}));
 app.use(bodyParser.json());
@@ -242,7 +244,7 @@ app.post('/api/v1/session', (req, res) => {
 })
 
 //Buchung durchführen
-app.post('/api/v1/booking', (req, res) => {
+/*app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
 	console.log(sessionHandler);
 	let i = 0;
@@ -274,6 +276,65 @@ app.post('/api/v1/booking', (req, res) => {
 				password: req.body.password}
 			customers[userid] = user;
 			console.log(customers);
+		}
+	}
+	sessionHandler.length = 0;
+	return res.send("1");
+})*/
+
+app.post('/api/v1/booking', (req, res) => {
+	console.log(req.body);
+	console.log(sessionHandler);
+	let i = 0;
+	db.each(`SELECT * FROM customers WHERE email = ${req.body.email}`, (error, row) => {
+		if (error) {
+			throw new Error(error.message);
+		}
+		console.log(row);
+	});
+	if(req.body.number > sessionHandler[1]){
+		sessionHandler.length = 0;
+		return res.send("0")
+	}
+	else{
+		if(!row){
+			//Customer ID schon vorhanden
+			//bike_id, number, date bei dem Customer einfügen
+			db.run(
+				`INSERT INTO customers (customer_id, name, email, password) VALUES (?, ?, ?)`, 
+				[userid, req.body.name, req.body.email, req.body.password],
+				function (error) {
+					if (error) {
+						console.error(error.message);
+					}
+					console.log(`Inserted a row with the ID: ${this.lastID}`);
+				}
+			);
+			db.run(
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?)`, 
+				[booking_id, sessionHandler[2], sessionHandler[0], req.body.number, userid],
+				function (error) {
+					if (error) {
+						console.error(error.message);
+					}
+					console.log(`Inserted a row with the ID: ${this.lastID}`);
+				}
+			);
+			userid++;
+			booking_id++;
+		}
+		else{
+			db.run(
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?)`, 
+				[booking_id, sessionHandler[2], sessionHandler[0], req.body.number, row[0]],
+				function (error) {
+					if (error) {
+						console.error(error.message);
+					}
+					console.log(`Inserted a row with the ID: ${this.lastID}`);
+				}
+			);
+			booking_id++;
 		}
 	}
 	sessionHandler.length = 0;
