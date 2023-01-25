@@ -338,7 +338,7 @@ app.post('/api/v1/booking', (req, res) => {
 			);
 			db.run(
 				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?, ?, ?)`, 
-				[booking_id, sessionHandler[2], sessionHandler[0], req.body.number, userid],
+				[null, sessionHandler[2], sessionHandler[0], req.body.number, userid],
 				function (error) {
 					if (error) {
 						console.error(error.message);
