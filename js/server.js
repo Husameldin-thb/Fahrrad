@@ -309,21 +309,21 @@ app.post('/api/v1/session', (req, res) => {
 app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
 	console.log(sessionHandler);
-	let i = new Array();
+	let iiii = new Array();
 	db.each(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
-		i = row;
+		iiii = row;
 		console.log(row);
 	});
-	console.log(i);
+	console.log(iiii);
 	if(req.body.number > sessionHandler[1]){
 		sessionHandler.length = 0;
 		return res.send("0")
 	}
 	else{
-		if(i.length < 1 || i == undefined) {
+		if(iiii.length < 1 || iiii == undefined) {
 			//Customer ID schon vorhanden
 			//bike_id, number, date bei dem Customer einfügen
 			db.run(
@@ -333,7 +333,7 @@ app.post('/api/v1/booking', (req, res) => {
 					if (error) {
 						console.error(error.message);
 					}
-					console.log(`Inserted a row with the ID: ${this.lastID}`);
+					console.log(`Inserted a row in customers with the ID: ${this.lastID}`);
 				}
 			);
 			db.run(
@@ -343,7 +343,7 @@ app.post('/api/v1/booking', (req, res) => {
 					if (error) {
 						console.error(error.message);
 					}
-					console.log(`Inserted a row with the ID: ${this.lastID}`);
+					console.log(`Inserted a row in bookings with the ID: ${this.lastID}`);
 				}
 			);
 			userid++;
