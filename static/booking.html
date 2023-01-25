@@ -55,7 +55,7 @@
                 <!-- Booking Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <form>
+                        <form onsubmit="alert('Möchten Sie die Buchung verbindlich abschließen?')" action = "saveBooking()">
                             <div class="mb-3">
                                 <div class="col"><p class="lead">Um Ihre Buchung abzuschließen, benötigen wir noch weitere Informationen. (Pflichtfelder sind mit * gekennzeichnet)</p></div>
                             </div>
@@ -86,7 +86,7 @@
                                 <div class="invalid-feedback" data-sb-feedback="password:required">Nachricht ist erforderlich.</div>
                             </div>
                             <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" onclick="saveBooking()">Verbindlich buchen</button>
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Verbindlich buchen</button>
                         </form>
                     </div>
                 </div>
