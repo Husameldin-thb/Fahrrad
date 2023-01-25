@@ -6,7 +6,6 @@ let bodyParser = require('body-parser');
 let db = require("./db");
 
 let idCounter = 0;
-let booking_id = 1;
 let customers = new Array ();
 let malebike = new Array ();
 let bike_01 = new Array ();
@@ -16,7 +15,6 @@ let bike_04 = new Array ();
 let bike_05 = new Array ();
 let bike_06 = new Array ();
 let sessionHandler = new Array ();
-let userid = 1;
 
 app.use(bodyParser.urlencoded({enxtended: true}));
 app.use(bodyParser.json());
@@ -328,7 +326,7 @@ app.post('/api/v1/booking', (req, res) => {
 			//bike_id, number, date bei dem Customer einfügen
 			db.run(
 				`INSERT INTO customers (customer_id, name, email, password) VALUES (?, ?, ?, ?)`, 
-				[userid, req.body.name, req.body.email, req.body.password],
+				[null, req.body.name, req.body.email, req.body.password],
 				function (error) {
 					if (error) {
 						console.error(error.message);
@@ -346,10 +344,6 @@ app.post('/api/v1/booking', (req, res) => {
 					console.log(`Inserted a row in bookings with the ID: ${this.lastID}`);
 				}
 			);
-			userid++;
-			console.log(userid);
-			booking_id++;
-			console.log(booking_id);
 		}
 		else{
 			db.run(
@@ -359,10 +353,9 @@ app.post('/api/v1/booking', (req, res) => {
 					if (error) {
 						console.error(error.message);
 					}
-					console.log(`Inserted a row with the ID: ${this.lastID}`);
+					console.log(`Inserted a row in bookings with the ID: ${this.lastID}`);
 				}
 			);
-			booking_id++;
 		}
 	}
 	sessionHandler.length = 0;
