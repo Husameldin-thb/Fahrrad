@@ -118,3 +118,5 @@ function showAlternatives() {
         console.log(res);
     })            
 };
+
+function login() {}
