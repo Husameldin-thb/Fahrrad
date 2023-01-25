@@ -101,6 +101,7 @@ function saveBooking() {
         console.log(res);
         if(res.data == "0") {
             alert('Anzahl nicht verfügbar.');
+            location.href = "booking.html";
             //document.getElementById('number').value = 1;
         }
         else {
