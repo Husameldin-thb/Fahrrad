@@ -347,7 +347,9 @@ app.post('/api/v1/booking', (req, res) => {
 				}
 			);
 			userid++;
+			console.log(userid);
 			booking_id++;
+			console.log(booking_id);
 		}
 		else{
 			db.run(
