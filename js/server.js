@@ -335,8 +335,8 @@ app.post('/api/v1/booking', (req, res) => {
 				}
 			);
 			db.run(
-				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?, ?, ?)`, 
-				[null, sessionHandler[2], sessionHandler[0], req.body.number, row[0]],
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, email) VALUES (?, ?, ?, ?, ?)`, 
+				[null, sessionHandler[2], sessionHandler[0], req.body.number, req.body.email],
 				function (error) {
 					if (error) {
 						console.error(error.message);
@@ -347,8 +347,8 @@ app.post('/api/v1/booking', (req, res) => {
 		}
 		else{
 			db.run(
-				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, customer_id) VALUES (?, ?, ?, ?, ?)`, 
-				[null, sessionHandler[2], sessionHandler[0], req.body.number, row[0]],
+				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, email) VALUES (?, ?, ?, ?, ?)`, 
+				[null, sessionHandler[2], sessionHandler[0], req.body.number, req.body.email],
 				function (error) {
 					if (error) {
 						console.error(error.message);

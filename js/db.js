@@ -32,9 +32,9 @@ function createTable(db) {
             bike_id INTEGER NOT NULL,
             booking_date VARCHAR(50) NOT NULL,
             number INTEGER NOT NULL,
-            customer_id INTEGER NOT NULL,
+            email VARCHAR(50) NOT NULL,
             PRIMARY KEY (bookings_id),
-            FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+            FOREIGN KEY (email) REFERENCES customers (email)
         );
     `);
 }
