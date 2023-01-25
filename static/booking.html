@@ -64,7 +64,7 @@
                             </div>
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="name" id="name" type="text" data-sb-validations="required"/>
+                                <input class="form-control" name="name" id="name" type="text" placeholder="Name" data-sb-validations="required"/>
                                 <label for="name">Vollständiger Name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">Name ist erforderlich.</div>
                             </div>
@@ -72,6 +72,7 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" required/>
                                 <label for="email">E-Mail-Adresse</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">E-Mail ist erforderlich.</div>
                             </div>
                             <!-- Number of bikes input-->
                             <div class="form-floating mb-3">
@@ -86,7 +87,7 @@
                                 <div class="invalid-feedback" data-sb-feedback="password:required">Nachricht ist erforderlich.</div>
                             </div>
                             <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Verbindlich buchen</button> <!--onclick ggf. wieder einfügen-->
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Verbindlich buchen</button>
                         </form>
                     </div>
                 </div>
