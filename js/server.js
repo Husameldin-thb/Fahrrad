@@ -366,3 +366,28 @@ app.post('/api/v1/booking', (req, res) => {
 	sessionHandler.length = 0;
 	return res.send("1");
 })
+
+//get alternative bikes from db
+app.post('/api/v1/alternatives', (req, res) => {
+	console.log(sessionHandler);
+	let alternatives = new Array ();
+	let i = 1;
+	while (i != sessionHandler[2] && i < 7){
+		db.each(`SELECT bike_id, 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" AND bike_id = "${i}"`, (error, row) => {
+			if (error) {
+				throw new Error(error.message);
+			}
+			console.log(row);
+			if(row.length < 1 || row == undefined) {
+				let data = {
+					bike_id: i,
+					num: 10
+				}
+				alternatives.push(data);
+			}
+			else{alternatives.push(row);}
+		});
+		i++;
+	}
+	return res.send(alternatives);
+})

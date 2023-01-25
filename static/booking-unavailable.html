@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>GLOBAL Bike</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/fav.svg" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script type="text/javascript" src="buttons.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body id="page-top" onload="showAlternatives()">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html">Global Bike</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menü 
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Angebote</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Über uns</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">kontakt</a></li>
+                        <div class="dropdown" class="nav-item mx-0 mx-lg-1">
+                        <button class="nav-link py-3 px-0 px-lg-3 rounded" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white; font-family: Montserrat; font-weight: bold; background-color: #2c3e50;border: 0ch; text-transform: uppercase;" href="/login.html">
+                                    Meine Buchungen
+                             </button>
+                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i>&nbsp; &nbsp;Benutzer name </li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; &nbsp;Logout</a></li>
+
+                        </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Booking Section-->
+        </br>
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Booking Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Leider ist an diesem Tag das gewünschte Fahrrad nicht mehr verfügbar. </h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <div class="mb-3">
+                            <div class="col"><p class="lead">Alternativ können wir Ihnen an diesem Tag folgende Fahrräder anbieten:</p></div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="col"><p class="lead" id="HIER ERSETZEN"></p></div>
+                        </div>
+                        <button class="btn btn-primary btn-xl" id="Homepage" type="submit" href="/index.html">Zurück zur Homepage</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Standort</h4>
+                        <p class="lead mb-0">
+                            Brandenburg an der Havel
+                            <br />
+                            Zanderstr. 10 A
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">rund um das Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Öffnungszeiten</h4>
+                        <p class="lead mb-0">
+                            
+                            Mo. bis Do. 8:00 - 18:00 Uhr <br>
+                            Fr. und Sa. 9:00 - 20:00 Uhr
+                            <!--Wir haben keinen ortsfesten Shop, sondern machen nur Termine für die Rückgabe und Abholung unserer Leihfahrräder. Die Termine müssen mindestens 1 Tag im Voraus bei uns eingegangen sein. Daher können zu diesem Zweck telefonisch oder per E-Mail Kontakt aufgenommen werden.
+                            
+                            Wir freuen uns auf Ihre Anfrage.
+                            Email: hossamossman92@gmail.com
+                            -->
+                            
+                            
+                           
+                        </p>
+                        <div id="return_availibility"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

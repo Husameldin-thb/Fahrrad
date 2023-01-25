@@ -1,3 +1,6 @@
+let a = "Damenfahrrad";
+let b = "Herrenfahrrad";
+
 //let current_checkout = new Array();
 
 //Verfügbarkeit prüfen
@@ -54,27 +57,31 @@ function checkAvailability(bike_id) {
     })
 };
 
-
 //Anzahl der Fahrräder und Datum in der Buchung ausgeben
 function checkNumber() {
     axios.post('/api/v1/session', )
     .then(function (res) {
         console.log(res);
-        let html_date = "<div>";
-        let html_objnumber = "<div>";
-        let objdate = res.data[0].toString(); 
-        let objnumber = res.data[1].toString();
-        html_date += "<p>";
-        html_date += objdate;
-        html_date += "</p>";
-        html_date += "</div>";
-        html_objnumber += "<p>";
-        html_objnumber += "Verfügbare Fahrräder an diesem Tag: "
-        html_objnumber += objnumber;
-        html_objnumber += "</p>";
-        html_objnumber += "</div>";
-        document.getElementById("return_availability").innerHTML = html_date;
-        document.getElementById("return_number").innerHTML = html_objnumber;
+        if(res.data[1] < 1){
+            location.href = "booking-unavailable.html";
+        }
+        else{
+            let html_date = "<div>";
+            let html_objnumber = "<div>";
+            let objdate = res.data[0].toString(); 
+            let objnumber = res.data[1].toString();
+            html_date += "<p>";
+            html_date += objdate;
+            html_date += "</p>";
+            html_date += "</div>";
+            html_objnumber += "<p>";
+            html_objnumber += "Verfügbare Fahrräder an diesem Tag: "
+            html_objnumber += objnumber;
+            html_objnumber += "</p>";
+            html_objnumber += "</div>";
+            document.getElementById("return_availability").innerHTML = html_date;
+            document.getElementById("return_number").innerHTML = html_objnumber;
+        }
     })
 };
 
@@ -101,4 +108,12 @@ function saveBooking() {
             console.log("Buchung bestätigt");
         }
     })
+};
+
+//Falls Fahrrad an dem Tag nicht verfügbar, verfügbare andere Fahrräder an dem Tag anzeigen
+function showAlternatives() {
+    axios.post('/api/v1/alternatives', )
+    .then(function (res) {
+        console.log(res);
+    })            
 };
