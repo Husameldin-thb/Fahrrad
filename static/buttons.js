@@ -105,8 +105,8 @@ function saveBooking() {
             //document.getElementById('number').value = 1;
         }
         else {
-            //location.href = "booking-successful.html";
             console.log("Buchung bestätigt");
+            location.href = "booking-successful.html"
         }
     })
 };
