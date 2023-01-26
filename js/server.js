@@ -410,11 +410,10 @@ app.post('/api/v1/pw', (req, res) => {
 	console.log(req.body);
 	db.each(`SELECT password FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
 		if (error) {
-			return res.send("0");
 			throw new Error(error.message);
 		}
 		console.log(row);
-		if(row.length < 1 || row == undefined) {
+		if(row.length < 1 || row == undefined || row == null) {
 			console.log("bin hier");
 			return res.send("0");
 		}
