@@ -411,6 +411,7 @@ app.post('/api/v1/pw', (req, res) => {
 	db.each(`SELECT password FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
+			return res.send("0");
 		}
 		console.log(row);
 		if(row.length < 1 || row == undefined) {
