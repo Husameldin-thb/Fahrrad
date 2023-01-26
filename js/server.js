@@ -420,7 +420,7 @@ app.post('/api/v1/pw', (req, res) => {
 });
 
 app.post('/api/v1/myBookings', (req, res) => {
-	console.log(customerHandler);
+	console.log(customerHandler.email);
 	db.get(`SELECT bookings_id, bike_id, booking_date, number FROM bookings WHERE email = ?`, [customerHandler.email], (error, row) => {
 		if (error) {
 			throw new Error(error.message);
