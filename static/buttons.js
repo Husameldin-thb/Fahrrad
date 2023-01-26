@@ -205,6 +205,7 @@ function getBookings() {
 function logout(){
     axios.post('/api/v1/logout', )
     .then(function (res) {
+        console.log("httasd");
         location.href = "index.html";
     })
 };
