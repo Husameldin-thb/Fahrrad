@@ -396,15 +396,14 @@ app.post('/api/v1/login', (req, res) => {
 		}
 		customerHandler.push(row);
 		console.log(customerHandler);
+		if(row.length < 1 || row == undefined) {
+			console.log("bin hier");
+			return res.send("0");
+		}
+		else{
+			console.log("oder hier");
+			return res.send("1")}
 	});
-	if(customerHandler.length < 1 || customerHandler == undefined) {
-		console.log("bin hier");
-		console.log(customerHandler.length);
-		return res.send("0");
-	}
-	else{
-		console.log("oder hier");
-		return res.send("1")}
 });
 
 app.post('/api/v1/pw', (req, res) => {
