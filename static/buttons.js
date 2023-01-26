@@ -119,4 +119,43 @@ function showAlternatives() {
     })            
 };
 
-function login() {}
+function login() {
+    let customer = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+    }
+    axios.post('/api/v1/login', customer)
+    .then(function (res) {
+        console.log(res);
+        if(res.data == "0"){
+            alert('Falsche E-Mail-Adresse oder falsches Passwort');
+        }
+        else{
+            location.href = "mybookings.html";
+        }
+    })            
+};
+
+function getPw() {
+    let customer = {email: document.getElementById('email').value}
+    if(customer.length < 1 || customer == undefined){
+        alert('Bitte E-Mail-Adresse angeben!');
+        //location.href = "login.html";
+    }
+    else{
+        axios.post('/api/v1/pw', customer)
+        .then(function (res) {
+            console.log(res);
+            let html = "<div>";
+            let obj = res.data[0].toString(); 
+            html += "<p>";
+            html += "Das Passwort für die angegebene E-Mail-Adresse lautet:"
+            html += obj;
+            html += "</p>";
+            html += "</div>";
+            document.getElementById("return_pw").innerHTML = html;
+        })
+    }
+}
+
+//function getBookings()
