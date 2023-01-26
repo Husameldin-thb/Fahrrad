@@ -140,7 +140,7 @@ function login() {
 function getPw() {
     let customer = {email: document.getElementById('email').value}
     console.log(customer);
-    if(customer.email == null){
+    if(customer.email == ""){
         alert('Bitte E-Mail-Adresse angeben!');
         //location.href = "login.html";
     }
