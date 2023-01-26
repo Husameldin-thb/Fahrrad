@@ -171,12 +171,12 @@ function getBookings() {
         console.log(res);
         console.log(Object.keys(res.data).length);
         console.log(res.data[0].number);
+        console.log("hier");
         if(res.data == "0"){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
         }
         else{
-            console.log("hier");
             let bike_name = "b";
             let bike_list = "<ul class='list-group'>"
             let i = 0;
