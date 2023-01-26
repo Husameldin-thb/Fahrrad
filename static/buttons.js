@@ -148,7 +148,7 @@ function getPw() {
         .then(function (res) {
             console.log(res);
             let html = "<div>";
-            let obj = res.data[0].toString(); 
+            let obj = res.password.toString(); 
             html += "<p>";
             html += "Das Passwort für die angegebene E-Mail-Adresse lautet:"
             html += obj;
