@@ -147,6 +147,7 @@ function getPw() {
         axios.post('/api/v1/pw', customer)
         .then(function (res) {
             console.log(res);
+            console.log(res.data.toString());
             let html = "<div>";
             let obj = res.password.toString(); 
             html += "<p>";
