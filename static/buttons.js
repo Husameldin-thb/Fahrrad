@@ -191,6 +191,7 @@ function getBookings() {
                 i++;
             }
             bike_list += "</ul>"
+            console.log(bike_list);
             document.getElementById("return_bookings").innerHTML = bike_list;
         }
     })
