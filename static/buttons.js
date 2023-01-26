@@ -192,20 +192,26 @@ function getBookings() {
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += "<button type='button' class='btn btn-danger btn-sm'>Stornieren</button>";
+                bike_list += "<button type='button' class='btn btn-danger btn-sm' onclick='deleteBooking(";
+                bike_list += res.data[i].bookings_id;
+                bike_list += ")'>Stornieren</button>";
                 bike_list += "</br></br>";
                 i++;
             }
             bike_list += "</ul>";
+            console.log(bike_list);
             document.getElementById("return_bookings").innerHTML = bike_list;
         }
     })
 };
+function deleteBooking(bookings_id) {
+
+}
 
 function logout(){
     axios.post('/api/v1/logout', )
     .then(function (res) {
         console.log("httasd");
-        location.href = "index.html";
+        //location.href = "index.html";
     })
 };
