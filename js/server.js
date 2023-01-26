@@ -429,4 +429,5 @@ app.post('/api/v1/myBookings', (req, res) => {
 			? res.send(row)
 			: res.send("0");
 	});
+	customerHandler.length = 0;
 });
