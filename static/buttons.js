@@ -169,7 +169,7 @@ function getBookings() {
     axios.post('/api/v1/myBookings', )
     .then(function (res) {
         console.log(res);
-        console.log(res.data.length);
+        console.log(res.length);
         if(res.data == "0"){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
