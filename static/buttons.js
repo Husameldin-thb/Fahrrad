@@ -124,6 +124,7 @@ function login() {
         email: document.getElementById('email').value,
         password: document.getElementById('password').value
     }
+    console.log(customer);
     axios.post('/api/v1/login', customer)
     .then(function (res) {
         console.log(res);
