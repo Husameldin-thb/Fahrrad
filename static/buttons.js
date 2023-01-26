@@ -181,13 +181,13 @@ function getBookings() {
             let i = 0;
             while(i < Object.keys(res.data).length){
                 bike_list += "<li class='list-group-item'>";
-                bike_list += "Fahrrad-ID:";
+                bike_list += "Fahrrad-ID: ";
                 bike_list += res.data[i].bike_id.toString();
                 bike_list += "</br>";
-                bike_list += "Buchungsdatum:";
+                bike_list += "Buchungsdatum: ";
                 bike_list += res.data[i].booking_date.toString();
                 bike_list += "</br>";
-                bike_list += "Anzahl gebuchter Fahrräder:";
+                bike_list += "Anzahl gebuchter Fahrräder: ";
                 bike_list += res.data[i].number.toString();
                 bike_list += "</br>";
                 bike_list += "</li>";
@@ -205,7 +205,17 @@ function getBookings() {
     })
 };
 function deleteBooking(bookings_id) {
-
+    let b_id = {bookings_id};
+    axios.post('/api/v1/deleteBooking', b_id)
+    .then(function (res) {
+        console.log(res);
+        if(res.data == "0"){
+            alert('Falsche E-Mail-Adresse oder falsches Passwort');
+        }
+        else{
+            location.href = "mybookings.html";
+        }
+    })
 }
 
 function logout(){

@@ -430,6 +430,21 @@ app.post('/api/v1/myBookings', (req, res) => {
 	//customerHandler.length = 0;
 });
 
+app.post('/api/v1/deleteBooking', (req, res) => {
+	console.log(req.body.data);
+	db.run(
+		`DELETE FROM bookings WHERE bookings_id = ?`, 
+		[req.body.data],
+		function (error) {
+			if (error) {
+				console.error(error.message);
+			}
+			console.log(`Inserted a row in customers with the ID: ${this.lastID}`);
+		}
+	);
+	return res.send(true);
+});
+
 app.post('/api/v1/logout', (req, res) => {
 	customerHandler.length = 0;
 	return res.send(true);
