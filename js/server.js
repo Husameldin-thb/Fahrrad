@@ -408,15 +408,12 @@ app.post('/api/v1/login', (req, res) => {
 
 app.post('/api/v1/pw', (req, res) => {
 	console.log(req.body);
-	db.each(`SELECT password FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
+	db.get(`SELECT password FROM customers WHERE email = ?`, [req.body.email], (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
-		console.log(row);
-		if(row.password == null || row.password == "") {
-			console.log("bin hier");
-			return res.send("0");
-		}
-		else{return res.send(row)}
+		return row
+			? res.send(row)
+			: res.send("0");
 	});
 });
