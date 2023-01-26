@@ -170,7 +170,7 @@ function getBookings() {
     .then(function (res) {
         console.log(res);
         console.log(Object.keys(res.data).length);
-        console.log(res.data.number);
+        console.log(res.data[0].number);
         if(res.data == "0"){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
