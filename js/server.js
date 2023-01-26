@@ -390,19 +390,22 @@ app.post('/api/v1/alternatives', (req, res) => {
 
 app.post('/api/v1/login', (req, res) => {
 	console.log(req.body);
-	db.each(`SELECT * FROM customers WHERE email = "${req.body.email}" AND password = "${req.body.password}"`, (error, row) => {
+	db.get(`SELECT * FROM customers WHERE email = "${req.body.email}" AND password = "${req.body.password}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
 		customerHandler.push(row);
 		console.log(customerHandler);
-		if(row.length < 1 || row == undefined) {
+		return row
+			? res.send("1")
+			: res.send("0");
+		/*if(row.length < 1 || row == undefined) {
 			console.log("bin hier");
 			return res.send("0");
 		}
 		else{
 			console.log("oder hier");
-			return res.send("1")}
+			return res.send("1")}*/
 	});
 });
 
