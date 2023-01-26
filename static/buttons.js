@@ -170,6 +170,7 @@ function getBookings() {
     .then(function (res) {
         console.log(res);
         console.log(Object.keys(res.data).length);
+        console.log(res.data[0]);
         if(res.data == "0"){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
@@ -177,8 +178,8 @@ function getBookings() {
         else{
             let bike_name = "b";
             let bike_list = "<ol>";
-            let i = 0;
-            while(i/4 < Object.keys(res.data).length){
+            let i = 3;
+            while(i < Object.keys(res.data).length){
                 bike_list += "<li>";
                 bike_list += res.data;
                 bike_list += "</li>";
