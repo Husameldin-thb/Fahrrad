@@ -308,21 +308,26 @@ app.post('/api/v1/session', (req, res) => {
 app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
 	console.log(sessionHandler);
-	let iiii = new Array();
-	db.each(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
+	//let iiii = new Array();
+	let content = "0";
+	db.get(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
-		iiii = row;
-		console.log(row);
+		return row
+			? content = "1"
+			: console.log("empty");
+		//iiii = row;
+		//console.log(row);
 	});
-	console.log(iiii);
+	//console.log(iiii);
 	if(req.body.number > sessionHandler[1]){
 		sessionHandler.length = 0;
 		return res.send("0")
 	}
 	else{
-		if(iiii.length < 1 || iiii == undefined) {
+		//if(iiii.length < 1 || iiii == undefined) {
+		if(content == "0") {	
 			//Customer ID schon vorhanden
 			//bike_id, number, date bei dem Customer einfügen
 			db.run(
@@ -399,19 +404,24 @@ app.post('/api/v1/login', (req, res) => {
 		return row
 			? res.send("1")
 			: res.send("0");
-		/*if(row.length < 1 || row == undefined) {
-			console.log("bin hier");
-			return res.send("0");
-		}
-		else{
-			console.log("oder hier");
-			return res.send("1")}*/
 	});
 });
 
 app.post('/api/v1/pw', (req, res) => {
 	console.log(req.body);
 	db.get(`SELECT password FROM customers WHERE email = ?`, [req.body.email], (error, row) => {
+		if (error) {
+			throw new Error(error.message);
+		}
+		return row
+			? res.send(row)
+			: res.send("0");
+	});
+});
+
+app.post('/api/v1/myBookings', (req, res) => {
+	console.log(customerHandler);
+	db.get(`SELECT bookings_id, bike_id, booking_date, number FROM bookings WHERE email = ?`, [customerHandler.email], (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}

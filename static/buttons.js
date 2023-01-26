@@ -165,4 +165,27 @@ function getPw() {
     }
 }
 
-//function getBookings()
+function getBookings() {
+    axios.post('/api/v1/myBookings', )
+    .then(function (res) {
+        console.log(res);
+        console.log(res.length);
+        if(res.data == "0"){
+            let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
+            document.getElementById("return_bookings").innerHTML = error_message;
+        }
+        else{
+            let bike_name = "b";
+            let bike_list = "<ol>";
+            let i = 0;
+            while(i < res.length){
+                bike_list += "<li>";
+                bike_list += res.data;
+                bike_list += "</li>";
+                i++;
+            }
+            bike_list += "</ol>"
+            document.getElementById("return_bookings").innerHTML = bike_list;
+        }
+    })
+};
