@@ -176,6 +176,7 @@ function getBookings() {
             document.getElementById("return_bookings").innerHTML = error_message;
         }
         else{
+            console.log("hier");
             let bike_name = "b";
             let bike_list = "<ul class='list-group'>"
             let i = 0;
