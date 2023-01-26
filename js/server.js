@@ -413,7 +413,7 @@ app.post('/api/v1/pw', (req, res) => {
 			throw new Error(error.message);
 		}
 		console.log(row);
-		if(row.length < 1 || row == undefined || row == null) {
+		if(row.password == null || row.password == "") {
 			console.log("bin hier");
 			return res.send("0");
 		}
