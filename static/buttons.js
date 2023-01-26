@@ -181,18 +181,19 @@ function getBookings() {
             let bike_list = "<ul class='list-group'>"
             let i = 0;
             while(i < Object.keys(res.data).length){
-                bike_list += "<li class='list-group-item'>"
+                bike_list += "<li class='list-group-item'>";
+                bike_list += "Fahrrad-ID: ";
                 bike_list += res.data[i].bike_id.toString();
+                bike_list += "Buchungsdatum: ";
                 bike_list += res.data[i].booking_date.toString();
+                bike_list += "Anzahl gebuchter Fahrräder: ";
                 bike_list += res.data[i].number.toString();
-                bike_list += "</li>"
+                bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += "<button type='button' class='btn btn-primary btn-sm'>Umbuchen</button>"
-                bike_list += "<button type='button' class='btn btn-danger btn-sm'>Stornieren</button>"
+                bike_list += "<button type='button' class='btn btn-danger btn-sm'>Stornieren</button>";
                 i++;
             }
-            bike_list += "</ul>"
-            console.log(bike_list);
+            bike_list += "</ul>";
             document.getElementById("return_bookings").innerHTML = bike_list;
         }
     })
