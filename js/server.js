@@ -427,5 +427,10 @@ app.post('/api/v1/myBookings', (req, res) => {
 		}
 		return res.send(row);
 	});
+	//customerHandler.length = 0;
+});
+
+app.post('/api/v1/logout', (req, res) => {
 	customerHandler.length = 0;
+	return res.send(true);
 });
