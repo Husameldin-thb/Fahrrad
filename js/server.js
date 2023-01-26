@@ -421,13 +421,11 @@ app.post('/api/v1/pw', (req, res) => {
 
 app.post('/api/v1/myBookings', (req, res) => {
 	console.log(customerHandler[0].email);
-	db.get(`SELECT bookings_id, bike_id, booking_date, number FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
+	db.all(`SELECT bookings_id, bike_id, booking_date, number FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
-		return row
-			? res.send(row)
-			: res.send("0");
+		return res.send(row);
 	});
 	customerHandler.length = 0;
 });
