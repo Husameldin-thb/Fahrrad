@@ -178,7 +178,7 @@ function getBookings() {
             let bike_name = "b";
             let bike_list = "<ol>";
             let i = 0;
-            while(i < res.length){
+            while(i/4 < Object.keys(res.data).length){
                 bike_list += "<li>";
                 bike_list += res.data;
                 bike_list += "</li>";
