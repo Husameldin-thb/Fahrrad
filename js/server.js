@@ -413,6 +413,10 @@ app.post('/api/v1/pw', (req, res) => {
 			throw new Error(error.message);
 		}
 		console.log(row);
-		return res.send(row);
+		if(row.length < 1 || row == undefined) {
+			console.log("bin hier");
+			return res.send("0");
+		}
+		else{return res.send(row)}
 	});
 });
