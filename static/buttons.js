@@ -171,7 +171,6 @@ function getBookings() {
         console.log(res);
         console.log(Object.keys(res.data).length);
         console.log(res.data[0].number);
-        console.log("hier");
         if(res.data == "0"){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
@@ -189,8 +188,10 @@ function getBookings() {
                 bike_list += "Anzahl gebuchter Fahrräder: ";
                 bike_list += res.data[i].number.toString();
                 bike_list += "</li>";
+                bike_list += "</br>";
                 bike_list += "<div class='mb-3'>";
                 bike_list += "<button type='button' class='btn btn-danger btn-sm'>Stornieren</button>";
+                bike_list += "</br></br>";
                 i++;
             }
             bike_list += "</ul>";
