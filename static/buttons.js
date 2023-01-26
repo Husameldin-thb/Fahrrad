@@ -139,6 +139,7 @@ function login() {
 
 function getPw() {
     let customer = {email: document.getElementById('email').value}
+    console.log(customer);
     if(customer.length < 1 || customer == undefined){
         alert('Bitte E-Mail-Adresse angeben!');
         //location.href = "login.html";
