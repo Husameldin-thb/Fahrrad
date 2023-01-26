@@ -398,9 +398,12 @@ app.post('/api/v1/login', (req, res) => {
 		console.log(customerHandler);
 	});
 	if(customerHandler.length < 1 || customerHandler == undefined) {
+		console.log("bin hier");
 		return res.send("0");
 	}
-	else{return res.send("1")}
+	else{
+		console.log("oder hier");
+		return res.send("1")}
 });
 
 app.post('/api/v1/pw', (req, res) => {
