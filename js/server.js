@@ -385,11 +385,13 @@ app.post('/api/v1/alternatives', (req, res) => {
 					num: 10
 				}
 				alternatives.push(data);
+				console("here");
 			}
 			else{alternatives.push(row);}
 		});
 		i++;
 	}
+	console.log(alternatives);
 	return res.send(alternatives);
 })
 
