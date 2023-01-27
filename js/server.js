@@ -374,7 +374,7 @@ app.post('/api/v1/alternatives', (req, res) => {
 	let alternatives = new Array ();
 	let i = 1;
 	while (i != sessionHandler[2] && i < 7){ //DB ALL
-		db.each(`SELECT bike_id, 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" AND bike_id = "${i}"`, (error, row) => {
+		db.all(`SELECT bike_id, 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" AND bike_id = "${i}"`, (error, row) => {
 			if (error) {
 				throw new Error(error.message);
 			}
