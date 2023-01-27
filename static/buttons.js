@@ -1,5 +1,4 @@
-let a = "Damenfahrrad";
-let b = "Herrenfahrrad";
+
 
 //let current_checkout = new Array();
 
@@ -177,11 +176,26 @@ function getBookings() {
         }
         else{
             let bike_name = "b";
-            let bike_list = "<ul class='list-group'>"
+            let bike_list = "<ul class='list-group'>";
+            let current_user = "<div>";
             let i = 0;
+            current_user += "<p>Angemeldet mit: ";
+            current_user += res.data[0].email.toString();
+            current_user += "</p></div>";
             while(i < Object.keys(res.data).length){
                 bike_list += "<li class='list-group-item'>";
-                bike_list += "Fahrrad-ID: ";
+                //bike_list += "Fahrrad-ID: ";
+                if(res.data[i].bike_id.toString() == "1"){
+                    bike_list += "Damenfahrrad";
+                } else if (res.data[i].bike_id.toString() == "2"){
+                    bike_list += "Herrenfahrrad";
+                } else if (res.data[i].bike_id.toString() == "3"){
+                    bike_list += "Kinderfahrrad (Mädchen)";
+                } else if (res.data[i].bike_id.toString() == "4"){
+                    bike_list += "Kinderfahrrad (Jungen)";
+                } else if (res.data[i].bike_id.toString() == "5"){
+                    bike_list += "Tandem";
+                } else {bike_list += "Bierfahrrad"}
                 bike_list += res.data[i].bike_id.toString();
                 bike_list += "</br>";
                 bike_list += "Buchungsdatum: ";
@@ -201,6 +215,7 @@ function getBookings() {
             bike_list += "</ul>";
             console.log(bike_list);
             document.getElementById("return_bookings").innerHTML = bike_list;
+            document.getElementById("return_user").innerHTML = current_user;
         }
     })
 };
@@ -210,7 +225,7 @@ function deleteBooking(bookings_id) {
     axios.post('/api/v1/deleteBooking', b_id)
     .then(function (res) {
         console.log(res);
-        //location.href = "mybookings.html";
+        location.href = "mybookings.html";
     })
 }
 

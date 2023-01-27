@@ -421,7 +421,7 @@ app.post('/api/v1/pw', (req, res) => {
 
 app.post('/api/v1/myBookings', (req, res) => {
 	console.log(customerHandler[0].email);
-	db.all(`SELECT bookings_id, bike_id, booking_date, number FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
+	db.all(`SELECT * FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
@@ -434,7 +434,7 @@ app.post('/api/v1/deleteBooking', (req, res) => {
 	console.log(req.body.bookings_id);
 	db.run(
 		`DELETE FROM bookings WHERE bookings_id = ?`, 
-		[req.body.data],
+		[req.body.bookings_id],
 		function (error) {
 			if (error) {
 				console.error(error.message);
