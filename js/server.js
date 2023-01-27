@@ -431,7 +431,7 @@ app.post('/api/v1/myBookings', (req, res) => {
 });
 
 app.post('/api/v1/deleteBooking', (req, res) => {
-	console.log(req.body);
+	console.log(req.body[0].bookings_id);
 	db.run(
 		`DELETE FROM bookings WHERE bookings_id = ?`, 
 		[req.body.data],
