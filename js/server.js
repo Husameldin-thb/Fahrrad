@@ -385,7 +385,7 @@ app.post('/api/v1/alternatives', (req, res) => {
 					num: 10
 				}
 				alternatives.push(data);
-				console("here");
+				console.log("here");
 			}
 			else{alternatives.push(row);}
 		});
