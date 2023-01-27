@@ -378,7 +378,7 @@ app.post('/api/v1/alternatives', (req, res) => {
 			if (error) {
 				throw new Error(error.message);
 			}
-			console.log(row.bike_id);
+			console.log(row.bike_id[0]);
 			if(row.length < 1 || row == undefined) {
 				let data = {
 					bike_id: i,
