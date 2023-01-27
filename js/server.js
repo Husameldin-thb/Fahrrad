@@ -379,7 +379,7 @@ app.post('/api/v1/alternatives', (req, res) => {
 				throw new Error(error.message);
 			}
 			console.log(row[0].bike_id);
-			return alternatives.push(row);
+			alternatives.push(row);
 			/*if(row[0].bike_id == null) {
 				let data = {
 					bike_id: i,
