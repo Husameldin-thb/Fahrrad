@@ -384,10 +384,10 @@ app.post('/api/v1/alternatives', (req, res) => {
 					bike_id: i,
 					num: 10
 				}
-				alternatives.push(data);
 				console.log("here");
+				return alternatives.push(data);
 			}
-			else{alternatives.push(row);}
+			else{return alternatives.push(row);}
 		});
 		i++;
 	}
