@@ -170,7 +170,7 @@ function getBookings() {
         console.log(res);
         console.log(Object.keys(res.data).length);
         console.log(res.data[0].number);
-        if(res.data == "0"){
+        if(res.data == 0){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
         }
@@ -184,7 +184,6 @@ function getBookings() {
             current_user += "</p></div>";
             while(i < Object.keys(res.data).length){
                 bike_list += "<li class='list-group-item'>";
-                //bike_list += "Fahrrad-ID: ";
                 if(res.data[i].bike_id.toString() == "1"){
                     bike_list += "Damenfahrrad";
                 } else if (res.data[i].bike_id.toString() == "2"){
@@ -196,7 +195,6 @@ function getBookings() {
                 } else if (res.data[i].bike_id.toString() == "5"){
                     bike_list += "Tandem";
                 } else {bike_list += "Bierfahrrad"}
-                bike_list += res.data[i].bike_id.toString();
                 bike_list += "</br>";
                 bike_list += "Buchungsdatum: ";
                 bike_list += res.data[i].booking_date.toString();
@@ -233,6 +231,7 @@ function logout(){
     axios.post('/api/v1/logout', )
     .then(function (res) {
         console.log("httasd");
-        //location.href = "index.html";
+        location.href = "index.html";
+        alert('Erfolgreich ausgeloggt.');
     })
 };

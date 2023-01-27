@@ -421,13 +421,16 @@ app.post('/api/v1/pw', (req, res) => {
 
 app.post('/api/v1/myBookings', (req, res) => {
 	console.log(customerHandler[0].email);
-	db.all(`SELECT * FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
-		if (error) {
-			throw new Error(error.message);
-		}
-		return res.send(row);
-	});
-	//customerHandler.length = 0;
+	if(customerHandler.length == 0) {
+		return res.send("0");
+	} else {
+		db.all(`SELECT * FROM bookings WHERE email = ?`, [customerHandler[0].email], (error, row) => {
+			if (error) {
+				throw new Error(error.message);
+			}
+			return res.send(row);
+		});
+	}
 });
 
 app.post('/api/v1/deleteBooking', (req, res) => {
