@@ -371,7 +371,7 @@ app.post('/api/v1/booking', (req, res) => {
 //get alternative bikes from db
 app.post('/api/v1/alternatives', (req, res) => {
 	console.log(sessionHandler);
-	db.all(`SELECT 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" GROUP BY bike_id"`, (error, row) => {
+	db.all(`SELECT 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" GROUP BY bike_id`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
