@@ -206,15 +206,11 @@ function getBookings() {
 };
 function deleteBooking(bookings_id) {
     let b_id = {bookings_id};
+    console.log(b_id);
     axios.post('/api/v1/deleteBooking', b_id)
     .then(function (res) {
         console.log(res);
-        if(res.data == "0"){
-            alert('Falsche E-Mail-Adresse oder falsches Passwort');
-        }
-        else{
-            location.href = "mybookings.html";
-        }
+        //location.href = "mybookings.html";
     })
 }
 

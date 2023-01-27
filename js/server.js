@@ -439,7 +439,7 @@ app.post('/api/v1/deleteBooking', (req, res) => {
 			if (error) {
 				console.error(error.message);
 			}
-			console.log(`Inserted a row in customers with the ID: ${this.lastID}`);
+			console.log(`Row deleted.`);
 		}
 	);
 	return res.send(true);
