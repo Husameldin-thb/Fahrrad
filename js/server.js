@@ -371,30 +371,13 @@ app.post('/api/v1/booking', (req, res) => {
 //get alternative bikes from db
 app.post('/api/v1/alternatives', (req, res) => {
 	console.log(sessionHandler);
-	let alternatives = new Array ();
-	let i = 1;
-	while (i != sessionHandler[2] && i < 7){ //DB ALL
-		db.all(`SELECT bike_id, 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" AND bike_id = "${i}"`, (error, row) => {
-			if (error) {
-				throw new Error(error.message);
-			}
-			console.log(row[0].bike_id);
-			alternatives.push(row);
-			/*if(row[0].bike_id == null) {
-				let data = {
-					bike_id: i,
-					num: 10
-				}
-				console.log("here");
-				return alternatives.push(data);
-			}
-			else{return alternatives.push(row);}*/
-		});
-		i++;
-	}
-	console.log(alternatives);
-	return res.send(alternatives);
-})
+	db.all(`SELECT 10-SUM(number) AS num FROM bookings WHERE booking_date = "${sessionHandler[0]}" GROUP BY bike_id"`, (error, row) => {
+		if (error) {
+			throw new Error(error.message);
+		}
+		return res.send(row);
+	});
+});
 
 app.post('/api/v1/login', (req, res) => {
 	console.log(req.body);
