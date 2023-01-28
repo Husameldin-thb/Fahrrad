@@ -104,15 +104,11 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		console.log(row[0].num);
 	});
 	console.log(number);
-	if(number.counter > 9){
+	if(row[0].num == 0){
 		return res.send("0");
 	}
-	else if(number.counter == undefined){
-		sessionHandler.push(req.body.data, 10, req.body.id); 
-		return res.send("1");
-	}
 	else{
-		sessionHandler.push(req.body.data, 10-number.counter, req.body.id);
+		sessionHandler.push(req.body.data, row[0].num, req.body.id);
 		return res.send("1");
 	}
 });
