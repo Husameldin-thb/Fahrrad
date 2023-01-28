@@ -112,13 +112,51 @@ function saveBooking() {
 
 //Falls Fahrrad an dem Tag nicht verfügbar, verfügbare andere Fahrräder an dem Tag anzeigen
 function showAlternatives() {
+    let session = new Array();
     let i = 0;
+    let bike_list = "<ul class='list-group'>";
+    axios.post('/api/v1/session', )
+    .then(function (res) {
+        console.log(res);
+        session.push(res);
+        console.log(session);
+    }) 
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
-        /*if(res.data[0].num == 0) {
-            while(i != )
-        }*/
+        if(res.data[0].num == 0) {
+            while(i != session[2] && i < 7) { //BEARBEITEN
+                bike_list += "<li class='list-group-item'>";
+                if(res.data[i].bike_id.toString() == "1"){
+                    bike_list += "Damenfahrrad";
+                } else if (res.data[i].bike_id.toString() == "2"){
+                    bike_list += "Herrenfahrrad";
+                } else if (res.data[i].bike_id.toString() == "3"){
+                    bike_list += "Kinderfahrrad (Mädchen)";
+                } else if (res.data[i].bike_id.toString() == "4"){
+                    bike_list += "Kinderfahrrad (Jungen)";
+                } else if (res.data[i].bike_id.toString() == "5"){
+                    bike_list += "Tandem";
+                } else {bike_list += "Bierfahrrad"}
+                bike_list += "</br>";
+                bike_list += "Buchungsdatum: ";
+                bike_list += res.data[i].booking_date.toString();
+                bike_list += "</br>";
+                bike_list += "Anzahl gebuchter Fahrräder: ";
+                bike_list += res.data[i].number.toString();
+                bike_list += "</br>";
+                bike_list += "</li>";
+                bike_list += "<div class='mb-3'>";
+                bike_list += "<button type='button' class='btn btn-danger btn-sm' onclick='deleteBooking(";
+                bike_list += res.data[i].bookings_id;
+                bike_list += ")'>Stornieren</button>";
+                bike_list += "</br></br>";
+                i++;
+            }
+            bike_list += "</ul>";
+            console.log(bike_list);
+            document.getElementById("return_alternatives").innerHTML = bike_list;
+        }
     })            
 };
 
@@ -179,7 +217,7 @@ function getBookings() {
             document.getElementById("return_bookings").innerHTML = error_message;
         }
         else{
-            let bike_name = "b";
+            //let bike_name = "b";
             let bike_list = "<ul class='list-group'>";
             let current_user = "<div>";
             let i = 0;
