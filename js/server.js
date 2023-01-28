@@ -371,6 +371,7 @@ app.post('/api/v1/alternatives', (req, res) => {
 		if (error) {
 			throw new Error(error.message);
 		}
+		sessionHandler.length = 0;
 		return res.send(row);
 	});
 });
