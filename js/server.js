@@ -101,7 +101,7 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		}
 		number = row;
 		console.log(row);
-		console.log(row.data[0].num);
+		console.log(row[0].num);
 	});
 	console.log(number);
 	if(number.counter > 9){
