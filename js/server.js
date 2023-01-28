@@ -95,7 +95,7 @@ app.post('/api/v1/malebike', (req, res) => {
 app.post('/api/v1/checkAvailability', (req, res) => {
 	let number = new Array ();
 	console.log(req.body);
-	db.each(`SELECT SUM(number) AS counter FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
+	db.all(`SELECT SUM(number) AS counter FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
