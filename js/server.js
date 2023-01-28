@@ -102,15 +102,14 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		number = row;
 		console.log(row);
 		console.log(row[0].num);
+		if(row[0].num == 0){
+			return res.send("0");
+		}
+		else{
+			sessionHandler.push(req.body.data, row[0].num, req.body.id);
+			return res.send("1");
+		}
 	});
-	console.log(number);
-	if(row[0].num == 0){
-		return res.send("0");
-	}
-	else{
-		sessionHandler.push(req.body.data, row[0].num, req.body.id);
-		return res.send("1");
-	}
 });
 
 /*app.post('/api/v1/checkAvailability', (req, res) => {
