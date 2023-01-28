@@ -95,12 +95,13 @@ app.post('/api/v1/malebike', (req, res) => {
 app.post('/api/v1/checkAvailability', (req, res) => {
 	let number = new Array ();
 	console.log(req.body);
-	db.all(`SELECT SUM(number) AS counter FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
+	db.all(`SELECT 10-SUM(number) AS num FROM bookings WHERE booking_date = "${req.body.data}" AND bike_id = "${req.body.id}"`, (error, row) => {
 		if (error) {
 			throw new Error(error.message);
 		}
 		number = row;
 		console.log(row);
+		console.log(row.data[0].num);
 	});
 	console.log(number);
 	if(number.counter > 9){
