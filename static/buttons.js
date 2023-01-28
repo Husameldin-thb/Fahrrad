@@ -61,10 +61,10 @@ function checkNumber() {
     axios.post('/api/v1/session', )
     .then(function (res) {
         console.log(res);
-        if(res.data[1] < 1){
-            location.href = "booking-unavailable.html";
-        }
-        else{
+        //if(res.data[1] < 1){
+            //location.href = "booking-unavailable.html";
+        //}
+        //else{
             let html_date = "<div>";
             let html_objnumber = "<div>";
             let objdate = res.data[0].toString(); 
@@ -80,7 +80,7 @@ function checkNumber() {
             html_objnumber += "</div>";
             document.getElementById("return_availability").innerHTML = html_date;
             document.getElementById("return_number").innerHTML = html_objnumber;
-        }
+        //}
     })
 };
 
