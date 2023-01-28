@@ -103,11 +103,11 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		console.log(row);
 		console.log(row[0].num);
 		if(row[0].num == 0){
+			sessionHandler.push(req.body.data, row[0].num, req.body.id);
 			return res.send("0");
 		}
 		else{
 			sessionHandler.push(req.body.data, row[0].num, req.body.id);
-			console.log(sessionHandler);
 			return res.send("1");
 		}
 	});
