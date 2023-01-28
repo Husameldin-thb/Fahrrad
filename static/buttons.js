@@ -46,7 +46,7 @@ function checkAvailability(bike_id) {
     .then(function (res) {
         console.log(res);
         if(res.data == "0") {
-            location.href = "availability.html";
+            location.href = "booking-unavailable.html";
         }
         else {
             //current_checkout.push(res.data.number);
