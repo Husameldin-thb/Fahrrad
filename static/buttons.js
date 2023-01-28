@@ -113,7 +113,7 @@ function saveBooking() {
 //Falls Fahrrad an dem Tag nicht verfügbar, verfügbare andere Fahrräder an dem Tag anzeigen
 function showAlternatives() {
     let session = new Array();
-    let i = 0;
+    let i = 1;
     let bike_list = "<ul class='list-group'>";
     axios.post('/api/v1/session', )
     .then(function (res) {
@@ -125,12 +125,10 @@ function showAlternatives() {
     .then(function (res) {
         console.log(res);
         if(res.data[0].num == 0) {
-            while(i != session[2] && i < 7) { //BEARBEITEN
+            while(i != session[2] && i < 7) { //BEARBEITEN - andere Schleife
                 bike_list += "<li class='list-group-item'>";
-                if(res.data[i].bike_id.toString() == "1"){
-                    bike_list += "Damenfahrrad";
-                } else if (res.data[i].bike_id.toString() == "2"){
-                    bike_list += "Herrenfahrrad";
+                if(i == 1){bike_list += "Damenfahrrad";}
+                else if (i == 2){bike_list += "Herrenfahrrad";
                 } else if (res.data[i].bike_id.toString() == "3"){
                     bike_list += "Kinderfahrrad (Mädchen)";
                 } else if (res.data[i].bike_id.toString() == "4"){
