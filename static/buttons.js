@@ -112,9 +112,13 @@ function saveBooking() {
 
 //Falls Fahrrad an dem Tag nicht verfügbar, verfügbare andere Fahrräder an dem Tag anzeigen
 function showAlternatives() {
+    let i = 0;
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
+        /*if(res.data[0].num == 0) {
+            while(i != )
+        }*/
     })            
 };
 
