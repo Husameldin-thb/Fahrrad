@@ -36,6 +36,8 @@
 
 //Verfügbarkeit prüfen auf index.html mit Übergabe der Werte des jeweiligen Fahrradtyps
 function checkAvailability(bike_id, chosenDate) {
+    let obj = chosenDate.toString();
+    console.log(obj);
     let availability = new Array();
     console.log(chosenDate)
     if(chosenDate == undefined){
