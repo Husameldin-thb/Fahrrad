@@ -105,6 +105,9 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		if(row[0].num == 0){
 			sessionHandler.push(req.body.data, row[0].num, req.body.id);
 			return res.send("0");
+		} else if(row[0].num == null) {
+			sessionHandler.push(req.body.data, 10, req.body.id);
+			return res.send("1");
 		}
 		else{
 			sessionHandler.push(req.body.data, row[0].num, req.body.id);
