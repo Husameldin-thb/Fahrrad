@@ -133,7 +133,7 @@ function showAlternatives() {
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
-        console.log(session[0]);
+        console.log(session[0].data);
         //let obj = res.data.find(o => o.bike_id === 1)
         //console.log(obj);
         while(i < 7) {
