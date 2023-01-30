@@ -155,7 +155,9 @@ function showAlternatives() {
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
                 bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
-                bike_list += i, session[0].data[0];
+                bike_list += i;
+                bike_list += ",";
+                bike_list += session[0].data[0];
                 bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
@@ -180,7 +182,9 @@ function showAlternatives() {
                     bike_list += "</li>";
                     bike_list += "<div class='mb-3'>";
                     bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
-                    bike_list += i, session[0].data[0];
+                    bike_list += i;
+                    bike_list += ",";
+                    bike_list += session[0].data[0];
                     bike_list += ")'>Jetzt Buchen</button>";
                     bike_list += "</br></br>";
                     i++;
