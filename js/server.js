@@ -16,7 +16,20 @@ let bike_05 = new Array ();
 let bike_06 = new Array ();
 let sessionHandler = new Array ();
 let customerHandler = new Array ();
-let savedFeedbacks = new Array ();
+let savedFeedbacks = [
+	{
+		name: "Marius H.",
+		feedback: "Toller Service"
+	},
+	{
+		name: "Meier",
+		feedback: "Den ganzen Tag Fahrrad fahren für wenig Geld - super!"
+	},
+	{
+		name: "Harald Meier",
+		feedback: "Gern wieder"
+	}
+];
 
 app.use(bodyParser.urlencoded({enxtended: true}));
 app.use(bodyParser.json());
@@ -446,6 +459,6 @@ app.post('/api/v1/feedback', (req, res) => {
 		name: req.body.name,
 		feedback: req.body.content
 	};
-	savedFeedbacks.push(setFeedback);
+	savedFeedbacks.unshift(setFeedback);
 	return res.send(savedFeedbacks);
 });

@@ -307,6 +307,8 @@ function logout(){
 };
 
 function writeFeedback(){
+    let i = 0;
+    let review = "";
     let feedback = {
         name: document.getElementById('').value,
         content: document.getElementById('').value
@@ -314,7 +316,17 @@ function writeFeedback(){
     axios.post('/api/v1/feedback', feedback)
     .then(function (res) {
         console.log(res);
-        location.href = "index.html";
+        console.log(res.data[0].feedback);
+        while(i < 3){
+            review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
+            review += res.data[i].feedback.toString();
+            review += "<footer class='blockquote-footer'>Someone famous in <cite title='Source Title'>";
+            review += res.data[i].name.toString();
+            review += "</cite></footer></blockquote>";
+            i++;
+        }
+        document.getElementById("return_reviews").innerHTML = review;
         alert('Rezension erfolgreich eingereicht.');
+        location.href = "index.html";
     })
 };
