@@ -155,7 +155,6 @@ function showAlternatives() {
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
                 bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session[0].data[0]}")'>Jetzt Buchen</button>`;
-                //bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
             } else {
@@ -178,11 +177,7 @@ function showAlternatives() {
                     bike_list += "</br>";
                     bike_list += "</li>";
                     bike_list += "<div class='mb-3'>";
-                    bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
-                    bike_list += i;
-                    bike_list += ",";
-                    bike_list += (session[0].data[0]).toString();
-                    bike_list += ")'>Jetzt Buchen</button>";
+                    bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session[0].data[0]}")'>Jetzt Buchen</button>`;
                     bike_list += "</br></br>";
                     i++;
                 }
@@ -308,5 +303,18 @@ function logout(){
         console.log("httasd");
         location.href = "index.html";
         alert('Erfolgreich ausgeloggt.');
+    })
+};
+
+function writeFeedback(){
+    let feedback = {
+        name: document.getElementById('').value,
+        content: document.getElementById('').value
+    }
+    axios.post('/api/v1/feedback', feedback)
+    .then(function (res) {
+        console.log(res);
+        location.href = "index.html";
+        alert('Rezension erfolgreich eingereicht.');
     })
 };

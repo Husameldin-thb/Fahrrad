@@ -16,6 +16,7 @@ let bike_05 = new Array ();
 let bike_06 = new Array ();
 let sessionHandler = new Array ();
 let customerHandler = new Array ();
+let savedFeedbacks = new Array ();
 
 app.use(bodyParser.urlencoded({enxtended: true}));
 app.use(bodyParser.json());
@@ -438,4 +439,13 @@ app.post('/api/v1/deleteBooking', (req, res) => {
 app.post('/api/v1/logout', (req, res) => {
 	customerHandler.length = 0;
 	return res.send(true);
+});
+
+app.post('/api/v1/feedback', (req, res) => {
+	let setFeedback = {
+		name: req.body.name,
+		feedback: req.body.content
+	};
+	savedFeedbacks.push(setFeedback);
+	return res.send(savedFeedbacks);
 });
