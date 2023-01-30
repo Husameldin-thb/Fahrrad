@@ -36,8 +36,6 @@
 
 //Verfügbarkeit prüfen auf index.html mit Übergabe der Werte des jeweiligen Fahrradtyps
 function checkAvailability(bike_id, chosenDate) {
-    let obj = chosenDate.toString();
-    console.log(obj);
     let availability = new Array();
     console.log(chosenDate)
     if(chosenDate == undefined){
@@ -136,7 +134,6 @@ function showAlternatives() {
     .then(function (res) {
         console.log(res);
         console.log(session[0].data[0]);
-        let session_date = session[0].data[0].toString();
         //let obj = res.data.find(o => o.bike_id === 1)
         //console.log(obj);
         while(i < 7) {
@@ -157,10 +154,10 @@ function showAlternatives() {
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
-                bike_list += i;
-                bike_list += ", ";
-                bike_list += session_date; //Ausgabe rechnet Minus und ist kein String
+                bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session.date}"`;
+                //bike_list += i;
+                //bike_list += ", ";
+                //bike_list += session_date; //Ausgabe rechnet Minus und ist kein String
                 bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
