@@ -124,6 +124,7 @@ function showAlternatives() {
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
+        console.log(res.find(res.bike_id === 2));
         if(res.data[0].num == 0) {
             while(i != session[2] && i < 7) { //BEARBEITEN - andere Schleife
                 bike_list += "<li class='list-group-item'>";
@@ -210,7 +211,6 @@ function getBookings() {
         console.log(res);
         console.log(Object.keys(res.data).length);
         console.log(res.data[0].number);
-        console.log(res.find(res.bike_id === 2));
         if(res.data == 0){
             let error_message = "<div><p>Fehler: Bitte erneut einloggen!</p></div>";
             document.getElementById("return_bookings").innerHTML = error_message;
