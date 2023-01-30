@@ -50,7 +50,7 @@ function checkAvailability(bike_id) {
         }
         else {
             //current_checkout.push(res.data.number);
-            location.href = "booking.html";
+            //location.href = "booking.html";
             console.log("Datum bestätigt");
         }
     })
