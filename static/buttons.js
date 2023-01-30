@@ -142,11 +142,11 @@ function showAlternatives() {
                 bike_list += "<li class='list-group-item'>";
                 if(i == 1){bike_list += "Damenfahrrad";
                 } else if (i == 2){bike_list += "Herrenfahrrad";
-                } else if (res.data[i].bike_id.toString() == "3"){
+                } else if (i == 3){
                     bike_list += "Kinderfahrrad (Mädchen)";
-                } else if (res.data[i].bike_id.toString() == "4"){
+                } else if (i == 4){
                     bike_list += "Kinderfahrrad (Jungen)";
-                } else if (res.data[i].bike_id.toString() == "5"){
+                } else if (i == 5){
                     bike_list += "Tandem";
                 } else {bike_list += "Bierfahrrad"}
                 bike_list += "</br>";
@@ -166,11 +166,11 @@ function showAlternatives() {
                     bike_list += "<li class='list-group-item'>";
                     if(i == 1){bike_list += "Damenfahrrad";}
                     else if (i == 2){bike_list += "Herrenfahrrad";
-                    } else if (res.data[i].bike_id.toString() == "3"){
+                    } else if (i == 3){
                         bike_list += "Kinderfahrrad (Mädchen)";
-                    } else if (res.data[i].bike_id.toString() == "4"){
+                    } else if (i == 4){
                         bike_list += "Kinderfahrrad (Jungen)";
-                    } else if (res.data[i].bike_id.toString() == "5"){
+                    } else if (i == 5){
                         bike_list += "Tandem";
                     } else {bike_list += "Bierfahrrad"}
                     bike_list += "</br>";
