@@ -306,14 +306,10 @@ function logout(){
     })
 };
 
-function writeFeedback(){
+function getFeedback(){
     let i = 0;
     let review = "";
-    let feedback = {
-        name: document.getElementById('').value,
-        content: document.getElementById('').value
-    }
-    axios.post('/api/v1/feedback', feedback)
+    axios.post('/api/v1/feedback', )
     .then(function (res) {
         console.log(res);
         console.log(res.data[0].feedback);
@@ -326,7 +322,19 @@ function writeFeedback(){
             i++;
         }
         document.getElementById("return_reviews").innerHTML = review;
+    })
+};
+
+function setFeedback(){
+    let feedback = {
+        name: document.getElementById('').value,
+        content: document.getElementById('').value
+    }
+    axios.post('/api/v1/feedback', feedback)
+    .then(function (res) {
+        console.log(res);
+        console.log(res.data[0].feedback);
         alert('Rezension erfolgreich eingereicht.');
         location.href = "index.html";
     })
-};
+}
