@@ -59,7 +59,7 @@ function checkAvailability(bike_id, chosenDate) {
         }
         else {
             //current_checkout.push(res.data.number);
-            //location.href = "booking.html";
+            location.href = "booking.html";
             console.log("Datum bestätigt");
         }
     })
@@ -154,11 +154,8 @@ function showAlternatives() {
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session[0].data[0]}"`;
-                //bike_list += i;
-                //bike_list += ", ";
-                //bike_list += session_date; //Ausgabe rechnet Minus und ist kein String
-                bike_list += ")'>Jetzt Buchen</button>";
+                bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session[0].data[0]}")'>Jetzt Buchen</button>`;
+                //bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
             } else {
