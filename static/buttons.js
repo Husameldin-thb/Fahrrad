@@ -35,10 +35,17 @@
 };*/
 
 //Verfügbarkeit prüfen auf index.html mit Übergabe der Werte des jeweiligen Fahrradtyps
-function checkAvailability(bike_id) {
-    let availability = {
-        id: bike_id,
-        data: document.getElementById('date_bike'+ bike_id).value
+function checkAvailability(bike_id, chosenDate) {
+    if(chosenDate == undefined){
+        let availability = {
+            id: bike_id,
+            data: document.getElementById('date_bike'+ bike_id).value
+        }
+    } else {
+        let availability = {
+            id: bike_id,
+            data: chosenDate
+        }
     }
     console.log(availability.data);
     //current_checkout.push(document.getElementById('date_bike').value);
