@@ -124,8 +124,11 @@ function showAlternatives() {
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
-        let obj = res.data.find(o => o.bike_id === 2)
+        let obj = res.data.find(o => o.bike_id === 1)
         console.log(obj);
+        while(i < 7) {
+
+        }
         if(res.data[0].num == 0) {
             while(i != session[2] && i < 7) { //BEARBEITEN - andere Schleife
                 bike_list += "<li class='list-group-item'>";
