@@ -187,6 +187,7 @@ function showAlternatives() {
                 }
             }
         }
+        document.getElementById("return_alternatives").innerHTML = bike_list;
     })            
 };
 
