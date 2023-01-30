@@ -154,7 +154,7 @@ function showAlternatives() {
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session.date}"`;
+                bike_list += `<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(${i}, "${session_date}"`;
                 //bike_list += i;
                 //bike_list += ", ";
                 //bike_list += session_date; //Ausgabe rechnet Minus und ist kein String
