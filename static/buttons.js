@@ -124,16 +124,15 @@ function showAlternatives() {
     axios.post('/api/v1/alternatives', )
     .then(function (res) {
         console.log(res);
-        let obj = res.data.find(o => o.bike_id === 1)
-        console.log(obj);
+        console.log(session.data[0]);
+        //let obj = res.data.find(o => o.bike_id === 1)
+        //console.log(obj);
         while(i < 7) {
-
-        }
-        if(res.data[0].num == 0) {
-            while(i != session[2] && i < 7) { //BEARBEITEN - andere Schleife
+            let obj = res.data.find(o => o.bike_id === i);
+            if(obj == undefined) {
                 bike_list += "<li class='list-group-item'>";
-                if(i == 1){bike_list += "Damenfahrrad";}
-                else if (i == 2){bike_list += "Herrenfahrrad";
+                if(i == 1){bike_list += "Damenfahrrad";
+                } else if (i == 2){bike_list += "Herrenfahrrad";
                 } else if (res.data[i].bike_id.toString() == "3"){
                     bike_list += "Kinderfahrrad (Mädchen)";
                 } else if (res.data[i].bike_id.toString() == "4"){
@@ -142,23 +141,42 @@ function showAlternatives() {
                     bike_list += "Tandem";
                 } else {bike_list += "Bierfahrrad"}
                 bike_list += "</br>";
-                bike_list += "Buchungsdatum: ";
-                bike_list += res.data[i].booking_date.toString();
-                bike_list += "</br>";
-                bike_list += "Anzahl gebuchter Fahrräder: ";
-                bike_list += res.data[i].number.toString();
+                bike_list += "Verfügbare Anzahl: 10";
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
-                bike_list += "<button type='button' class='btn btn-danger btn-sm' onclick='deleteBooking(";
-                bike_list += res.data[i].bookings_id;
-                bike_list += ")'>Stornieren</button>";
+                bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
+                bike_list += i, session.data[0];
+                bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
+            } else {
+                if(obj.num == 0) {
+                    i++;
+                } else {
+                    bike_list += "<li class='list-group-item'>";
+                    if(i == 1){bike_list += "Damenfahrrad";}
+                    else if (i == 2){bike_list += "Herrenfahrrad";
+                    } else if (res.data[i].bike_id.toString() == "3"){
+                        bike_list += "Kinderfahrrad (Mädchen)";
+                    } else if (res.data[i].bike_id.toString() == "4"){
+                        bike_list += "Kinderfahrrad (Jungen)";
+                    } else if (res.data[i].bike_id.toString() == "5"){
+                        bike_list += "Tandem";
+                    } else {bike_list += "Bierfahrrad"}
+                    bike_list += "</br>";
+                    bike_list += "Verfügbare Anzahl: ";
+                    bike_list += obj.num.toString();
+                    bike_list += "</br>";
+                    bike_list += "</li>";
+                    bike_list += "<div class='mb-3'>";
+                    bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
+                    bike_list += i, session.data[0];
+                    bike_list += ")'>Jetzt Buchen</button>";
+                    bike_list += "</br></br>";
+                    i++;
+                }
             }
-            bike_list += "</ul>";
-            console.log(bike_list);
-            document.getElementById("return_alternatives").innerHTML = bike_list;
         }
     })            
 };
