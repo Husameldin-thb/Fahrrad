@@ -157,7 +157,9 @@ function showAlternatives() {
                 bike_list += "<button type='button' class='btn btn-primary btn-sm' onclick='checkAvailability(";
                 bike_list += i;
                 bike_list += ",";
-                bike_list += (session[0].data[0]).toString();
+                bike_list += "'";
+                bike_list += session[0].data[0].toString();
+                bike_list += "'";
                 bike_list += ")'>Jetzt Buchen</button>";
                 bike_list += "</br></br>";
                 i++;
