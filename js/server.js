@@ -464,6 +464,7 @@ app.post('/api/v1/feedback', (req, res) => {
 			name: req.body.name,
 			feedback: req.body.content
 		};
+		console.log(savedFeedbacks);
 		savedFeedbacks.unshift(setFeedback);
 		return res.send(savedFeedbacks);
 	}
