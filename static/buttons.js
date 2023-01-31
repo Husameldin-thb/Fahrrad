@@ -272,6 +272,9 @@ function getBookings() {
                 bike_list += "Anzahl gebuchter Fahrräder: ";
                 bike_list += res.data[i].number.toString();
                 bike_list += "</br>";
+                bike_list += "Preis: ";
+                bike_list += (res.data[i].number * 10).toString();
+                bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
                 bike_list += "<button type='button' class='btn btn-danger btn-sm' onclick='deleteBooking(";
@@ -317,9 +320,10 @@ function getFeedback(){
             review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
             review += res.data[i].feedback.toString();
             review += "</br>"
-            review += "<footer class='blockquote-footer'>schrieb <cite title='Source Title'>";
+            review += "</br><footer class='blockquote-footer'>schrieb <cite title='Source Title'>";
             review += res.data[i].name.toString();
             review += "</cite></footer></blockquote>";
+            review += "</br>";
             i++;
         }
         document.getElementById("return_reviews").innerHTML = review;
