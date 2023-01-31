@@ -457,7 +457,7 @@ app.post('/api/v1/logout', (req, res) => {
 app.post('/api/v1/feedback', (req, res) => {
 	console.log(req.body); 
 	console.log(Object.keys(req.body).length);
-	if(req.body.length > 0){
+	if(Object.keys(req.body).length === 0){
 		return res.send(savedFeedbacks);
 	} else {
 		let setFeedback = {
