@@ -1,39 +1,3 @@
-
-
-//let current_checkout = new Array();
-
-//Verfügbarkeit prüfen
-/*function malebikeAvailable() {
-    let male_availability = {
-        data: document.getElementById('date_malebike').value
-    }
-    console.log(male_availability.data);
-    console.log("Hat geklappt");
-    axios.post('/api/v1/malebike', male_availability)
-    .then(function (res) {
-        console.log(res);
-        let html = "<div>";
-        if(res.data == "1") {
-            html += "<p>";
-            html += "Verfügbar";
-            html += "</p>";
-            html += "</div>";
-            document.getElementById("return_availibility").innerHTML = html;
-            console.log("Verfügbar");
-        }
-        else {
-            html += "<p>";
-            html += "Nicht verfügbar";
-            html += "</p>";
-            html += "</div>";
-            document.getElementById("return_availibility").innerHTML = html;
-            console.log("Nicht verfügbar");
-        }
-    })
-    //location.href = "login.html";
-
-};*/
-
 //Verfügbarkeit prüfen auf index.html mit Übergabe der Werte des jeweiligen Fahrradtyps
 function checkAvailability(bike_id, chosenDate) {
     let availability = new Array();
