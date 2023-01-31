@@ -313,10 +313,10 @@ function getFeedback(){
     .then(function (res) {
         console.log(res);
         console.log(res.data[1].feedback);
-        while(i < 3){
+        while(i < 4){
             review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
             review += res.data[i].feedback.toString();
-            review += "<footer class='blockquote-footer'>Someone famous in <cite title='Source Title'>";
+            review += "</br><footer class='blockquote-footer'>schrieb <cite title='Source Title'>";
             review += res.data[i].name.toString();
             review += "</cite></footer></blockquote>";
             i++;
