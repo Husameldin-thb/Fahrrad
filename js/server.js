@@ -469,3 +469,9 @@ app.post('/api/v1/feedback', (req, res) => {
 		return res.send(savedFeedbacks);
 	}
 });
+
+app.post('/api/v1/getStatusOfCustomerLogin', (req, res) => {
+	if(customerHandler.length === 0){
+		return res.send(0);
+	} else {return res.send(1);}
+});
