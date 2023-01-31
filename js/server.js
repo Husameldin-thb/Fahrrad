@@ -455,12 +455,16 @@ app.post('/api/v1/logout', (req, res) => {
 });
 
 app.post('/api/v1/feedback', (req, res) => {
-	console.log(req.body); //If req = empty -> direkt res.send Feedbacks, else einfügen und res.send feedbacks
+	console.log(req.body); 
 	console.log(req.body.length);
-	let setFeedback = {
-		name: req.body.name,
-		feedback: req.body.content
-	};
-	savedFeedbacks.unshift(setFeedback);
-	return res.send(savedFeedbacks);
+	if(req.body.length == undefined){
+		return res.send(savedFeedbacks);
+	} else {
+		let setFeedback = {
+			name: req.body.name,
+			feedback: req.body.content
+		};
+		savedFeedbacks.unshift(setFeedback);
+		return res.send(savedFeedbacks);
+	}
 });

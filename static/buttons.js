@@ -328,9 +328,10 @@ function getFeedback(){
 
 function setFeedback(){
     let feedback = {
-        name: document.getElementById('').value,
-        content: document.getElementById('').value
+        name: document.getElementById('name').value,
+        content: document.getElementById('message').value
     }
+    console.log(feedback);
     axios.post('/api/v1/feedback', feedback)
     .then(function (res) {
         console.log(res);
