@@ -316,6 +316,7 @@ function getFeedback(){
         while(i < 4){
             review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
             review += res.data[i].feedback.toString();
+            review += "</br>"
             review += "</br><footer class='blockquote-footer'>schrieb <cite title='Source Title'>";
             review += res.data[i].name.toString();
             review += "</cite></footer></blockquote>";
