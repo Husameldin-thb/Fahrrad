@@ -307,13 +307,13 @@ function logout(){
 };
 
 function getFeedback(){
-    let i =1;
+    let i =0;
     let review = "";
     axios.post('/api/v1/feedback', )
     .then(function (res) {
         console.log(res);
         console.log(res.data[1].feedback);
-        while(i < 4){
+        while(i < 3){
             review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
             review += res.data[i].feedback.toString();
             review += "</br>"
