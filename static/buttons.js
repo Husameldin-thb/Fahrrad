@@ -274,6 +274,7 @@ function getBookings() {
                 bike_list += "</br>";
                 bike_list += "Preis: ";
                 bike_list += (res.data[i].number * 10).toString();
+                bike_list += " €";
                 bike_list += "</br>";
                 bike_list += "</li>";
                 bike_list += "<div class='mb-3'>";
