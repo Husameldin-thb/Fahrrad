@@ -350,7 +350,7 @@ function getCustomerHandler(){
     axios.post('/api/v1/getStatusOfCustomerLogin', )
     .then(function (res) {
         console.log(res);
-        if(res.data == 0) {
+        if(res.data == "0") {
             location.href = "login.html";
         } else {
             location.href = "mybookings.html";

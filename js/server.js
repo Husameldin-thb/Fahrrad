@@ -473,6 +473,6 @@ app.post('/api/v1/feedback', (req, res) => {
 app.post('/api/v1/getStatusOfCustomerLogin', (req, res) => {
 	console.log(customerHandler.length);
 	if(customerHandler.length === 0){
-		return res.sendStatus(0);
-	} else {return res.sendStatus(1);}
+		return res.send("0");
+	} else {return res.send("1");}
 });
