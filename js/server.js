@@ -7,13 +7,6 @@ let db = require("./db");
 
 let idCounter = 0;
 let customers = new Array ();
-//let malebike = new Array ();
-//let bike_01 = new Array ();
-//let bike_02 = new Array ();
-//let bike_03 = new Array ();
-//let bike_04 = new Array ();
-//let bike_05 = new Array ();
-//let bike_06 = new Array ();
 let sessionHandler = new Array ();
 let customerHandler = new Array ();
 let savedFeedbacks = [

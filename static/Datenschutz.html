@@ -1,70 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATENSCHUTZ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</head>
-<body>
-    <h2>Datenschutz</h2> 
-    <P> <b>Global Bike</b>  legt großen Wert auf den Schutz personenbezogener Daten. Aus diesem Grund achten wir bei der Verarbeitung deiner Daten auf größtmögliche Sorgfalt. Mit dieser Datenschutzerklärung informieren wir dich über unseren Umgang mit personenbezogenen Daten. Für diese Erklärung und den Schutz Ihrer personenbezogenen Daten ist verantwortlich:</P><br>
-    <p><b>Verantwortlich</b> : Herr kai Jander</p>
-    <p><b>Adresse</b>  : Magdeburger Str. 50, 14776 Brandenburg an der Havel</p>
-    <p><b> E-Mail</b>:  jander@th-brandenburg.de</p><br><br>
-    <p> <b>1. Wofür verarbeiten wir Ihre Daten:</b> </p>
-<p>Grundsätzlich erfolgt die Datenverarbeitung Ihrer personenbezogenen Daten nur, wenn dies zum Zwecke der Verarbeitung notwendig ist.
-    Ihre personenbezogenen Daten werden von uns für die Auftragserfüllung und Durchführung vorvertraglicher Maßnahmen erhoben, verarbeitet und gespeichert.
-    Zur Datenverarbeitung müssen Sie dieser mit einer Einwilligungserklärung zustimmen und/oder wir verfügen über eine gesetzliche Erlaubnisnorm, welche diese rechtfertigt.
-    Sofern keine erforderlichen Gründe im Zusammenhang mit einer Geschäftsabwicklung bestehen, können Sie jederzeit die zuvor erteilte Genehmigung Ihrer persönlichen Datenspeicherung mit sofortiger Wirkung schriftlich (z.B. per E-Mail oder per Fax) widerrufen.
-    </p><br>
-    <p><b>1.1 Rechtsgrundlage:</b></p>
-    <p>Eine Rechtsgrundlage für die Datenverarbeitung in Folge einer Einwilligungserklärung regelt
-        Art. 6 Abs. 1 a) DS-GVO.
-        Die Rechtsgrundlage für die gesetzliche Erlaubnisnorm, d.h. wenn Sie mit uns eine vertragliche Vereinbarung treffen regelt Art. 6 Abs. 1 b) DS-GVO, dies gilt auch für sämtliche vorvertraglichen Maßnahmen.
-        </p><br>
-        <p><b>1.2 Löschung und Sperrung:</b></p>
-        <p>Entfällt der Zweck der Datenverarbeitung werden von uns sämtliche, von Ihnen gespeicherten personenbezogenen Daten gelöscht oder auf eine Sperrliste gesetzt.
-            Auf der Grundlage europäischer oder nationaler Gesetze oder sonstiger Vorschriften kann eine Pflicht zur Speicherung allerdings weiter bestehen.
-            Im Fall einer gesetzlichen Aufbewahrungsfrist halten wir uns entsprechend an diese und löschen personenbezogenen Daten unverzüglich.
-            </p><br>
-            <p><b><u>2. Welche Rechte haben Sie:</u> </b></p>
-            <p><b>2.1 Auskunftsrecht:</b></p>
-            <p>Sie haben das Recht, sich eine unentgeltliche Auskunft über Ihre gespeicherten Daten einzuholen. Auf Anforderung teilen wir Ihnen nach geltendem Recht in schriftlicher Form mit, welche personenbezogenen Daten wir von Ihnen gespeichert haben. Dies beinhaltet ebenfalls, die Herkunft und die Empfänger Ihrer Daten sowie den Zweck der Datenverarbeitung.</p>
-            <p><b>2.2 Recht auf Berichtigung</b></p>
-            <p>Sie haben das Recht, Ihre bei uns gespeicherten Daten bei Unrichtigkeit und Unvollständigkeit berichtigen und vervollständigen zu lassen. Hierbei können Sie eine Einschränkung der Verarbeitung, z. B. bei Bestreiten der Richtigkeit Ihrer personenbezogenen Daten, verlangen.</p>
-             <p><b>2.3 Recht auf Sperrung</b></p>
-             <p>Sie haben das Recht Ihre Daten sperren lassen. Damit eine Sperrung Ihrer Daten jederzeit berücksichtigt werden kann, müssen diese Daten zu Kontrollzwecken in einer Sperrdatei vorgehalten werden.
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>GLOBAL Bike</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/fav.svg" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script type="text/javascript" src="buttons.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html">Global Bike</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menü 
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#portfolio">Angebote</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#about">Über uns</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#contact">Meinungen</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login.html">Meine Buchungen</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Booking Section-->
+        </br>
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Booking Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Datenschutzerklärung</div></h2>
+                <!-- Booking Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <P> <b>Global Bike</b>  legt großen Wert auf den Schutz personenbezogener Daten. Aus diesem Grund achten wir bei der Verarbeitung deiner Daten auf größtmögliche Sorgfalt. Mit dieser Datenschutzerklärung informieren wir dich über unseren Umgang mit personenbezogenen Daten. Für diese Erklärung und den Schutz Ihrer personenbezogenen Daten ist verantwortlich:</P><br>
+                        <p><b>Verantwortlich</b> : ...</p>
+                        <p><b>Adresse</b>  : Magdeburger Str. 50, 14776 Brandenburg an der Havel</p>
+                        <p><b> E-Mail</b>:  ...</p><br><br>
+                        <p> <b>1. Wofür verarbeiten wir Ihre Daten:</b> </p>
+                        <p>Grundsätzlich erfolgt die Datenverarbeitung Ihrer personenbezogenen Daten nur, wenn dies zum Zwecke der Verarbeitung notwendig ist.
+                            Ihre personenbezogenen Daten werden von uns für die Auftragserfüllung und Durchführung vorvertraglicher Maßnahmen erhoben, verarbeitet und gespeichert.
+                            Zur Datenverarbeitung müssen Sie dieser mit einer Einwilligungserklärung zustimmen und/oder wir verfügen über eine gesetzliche Erlaubnisnorm, welche diese rechtfertigt.
+                            Sofern keine erforderlichen Gründe im Zusammenhang mit einer Geschäftsabwicklung bestehen, können Sie jederzeit die zuvor erteilte Genehmigung Ihrer persönlichen Datenspeicherung mit sofortiger Wirkung schriftlich (z.B. per E-Mail oder per Fax) widerrufen.
+                            </p><br>
+                            <p><b>1.1 Rechtsgrundlage:</b></p>
+                            <p>Eine Rechtsgrundlage für die Datenverarbeitung in Folge einer Einwilligungserklärung regelt
+                                Art. 6 Abs. 1 a) DS-GVO.
+                                Die Rechtsgrundlage für die gesetzliche Erlaubnisnorm, d.h. wenn Sie mit uns eine vertragliche Vereinbarung treffen regelt Art. 6 Abs. 1 b) DS-GVO, dies gilt auch für sämtliche vorvertraglichen Maßnahmen.
+                                </p><br>
+                                <p><b>1.2 Löschung und Sperrung:</b></p>
+                                <p>Entfällt der Zweck der Datenverarbeitung werden von uns sämtliche, von Ihnen gespeicherten personenbezogenen Daten gelöscht oder auf eine Sperrliste gesetzt.
+                                    Auf der Grundlage europäischer oder nationaler Gesetze oder sonstiger Vorschriften kann eine Pflicht zur Speicherung allerdings weiter bestehen.
+                                    Im Fall einer gesetzlichen Aufbewahrungsfrist halten wir uns entsprechend an diese und löschen personenbezogenen Daten unverzüglich.
+                                    </p><br>
+                                    <p><b><u>2. Welche Rechte haben Sie:</u> </b></p>
+                                    <p><b>2.1 Auskunftsrecht:</b></p>
+                                    <p>Sie haben das Recht, sich eine unentgeltliche Auskunft über Ihre gespeicherten Daten einzuholen. Auf Anforderung teilen wir Ihnen nach geltendem Recht in schriftlicher Form mit, welche personenbezogenen Daten wir von Ihnen gespeichert haben. Dies beinhaltet ebenfalls, die Herkunft und die Empfänger Ihrer Daten sowie den Zweck der Datenverarbeitung.</p>
+                                    <p><b>2.2 Recht auf Berichtigung</b></p>
+                                    <p>Sie haben das Recht, Ihre bei uns gespeicherten Daten bei Unrichtigkeit und Unvollständigkeit berichtigen und vervollständigen zu lassen. Hierbei können Sie eine Einschränkung der Verarbeitung, z. B. bei Bestreiten der Richtigkeit Ihrer personenbezogenen Daten, verlangen.</p>
+                                    <p><b>2.3 Recht auf Sperrung</b></p>
+                                    <p>Sie haben das Recht Ihre Daten sperren lassen. Damit eine Sperrung Ihrer Daten jederzeit berücksichtigt werden kann, müssen diese Daten zu Kontrollzwecken in einer Sperrdatei vorgehalten werden.
 
-            </p>
-            <p><b>2.4 Recht auf Löschung</b></p>
-            <p>Sie haben das Recht auf Löschung Ihrer personenbezogenen Daten, soweit keine gesetzlichen Aufbewahrungspflichten bestehen. Soweit eine solche Verpflichtung besteht, sperren wir Ihre Daten auf Wunsch. Liegen die entsprechenden gesetzlichen Voraussetzungen vor, werden wir auch ohne Vorliegen eines entsprechenden Verlangens Ihrerseits Ihre personenbezogenen Daten löschen.</p>
-            <p><b>2.5 Recht auf Datenübertragbarkeit</b></p>
-            <p>Sie haben das Recht, von uns die Bereitstellung der uns übermittelten personenbezogenen Daten zu verlangen, auch zum Zweck der Übermittlung in einem strukturierten Format an eine andere Organisation und Person.
-            </p>
-            <p><b>2.6 Beschwerderecht bei einer Aufsichtsbehörde</b></p>
-            <p>Sie haben das Recht, sich mit einer Beschwerde an die für uns zuständige Datenschutzbehörde zu wenden.</p>
-            <p><b>2.7 Widerspruchsrecht</b></p>
-            <p>Sie haben jederzeit die Möglichkeit, einer erteilten Einwilligung in die Nutzung Ihrer Daten mit Wirkung für die Zukunft zu widerrufen. Hierzu genügt es, eine entsprechende E-Mail an uns zu senden info@global-bike.de. Ein solcher Widerruf berührt allerdings nicht die Rechtmäßigkeit der bis dahin erfolgten Verarbeitungsvorgänge durch uns. Unberührt hiervon bleibt ebenfalls die Datenverarbeitung bzgl. aller sonstigen Rechtsgrundlagen, wie bspw. die Vertragsanbahnung (siehe oben).</p>
-            <p><b>3. Keine automatisierte Entscheidungsfindung</b></p>
-            <p>Wir weisen Sie darauf hin, dass Sie im Rahmen der Nutzung unserer Dienste und der Inanspruchnahme unserer Leistungen/Dienstleistung nicht einer ausschließlich auf einer automatisierten Verarbeitung – einschließlich Profiling – beruhenden Entscheidung unterworfen werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigen.</p>
-            <p><b>4. Wie sichern wir Ihre Daten:</b></p>
-            <p>Die uns zur Verfügung gestellten persönlichen Daten werden durch Ergreifung aller technischen als auch organisatorischen Sicherheitsmaßnahmen gesichert, so dass sie für den Zugriff unberechtigter Dritter unzugänglich sind.</p>
-            <p><b>4.1 Datensicherheit und –schutz, E-Mail Verkehr, Kontaktformular</b></p>
-            <p>Nutzen Sie elektronische Hilfsmittel um mit uns in Kontakt zu treten, werden die Daten von Ihnen erhoben, die Sie uns aktiv zur Verfügung stellen. Bei der Nutzung des Kontaktformulars auf unserer Website wird darüber hinaus Ihre IP-Adresse inkl. Datum und Uhrzeit gespeichert. Zum Zweck des Absende Vorganges wird Ihre Einwilligung eingeholt, welche Sie aktiv bestätigen müssen und es wird auf unsere Datenschutzerklärung verwiesen. Soweit Sie uns eine E-Mail senden, werden personenbezogene Daten gespeichert, die Sie innerhalb der Nachricht angeben. Die Verarbeitung erfolgt nur zum Zwecke der Kommunikation mit Ihnen. Ihre personenbezogenen Daten werden durch Ergreifung unserer technischen und organisatorischen Möglichkeiten so gespeichert, dass sie für Dritte nicht zugänglich sind. Bei der Kommunikation per E-Mail kann die vollständige Datensicherheit von uns nicht gewährleistet werden, sodass wir Ihnen bei Informationen mit hohem Geheimhaltungsbedürfnis die Verschlüsselung Ihre Daten und/oder den Postweg empfehlen.</p>
-            <p><b>4.2. SSL- bzw. TLS-Verschlüsselung</b></p>
-            <p>Unsere Internetseite nutzt zur Sicherung der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen, die Sie an uns senden, eine SSL-bzw. TLS-Verschlüsselung. Das erkennen Sie an dem grünen Schloss in der Adresszeile des Browsers und an dem Wechsel von “http://” auf “https://” in Ihrer Browserzeile. Bei aktivierter SSL- bzw. TLS-Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
-            <p><b>5. Datenspeicherung</b></p>
-            <p>Der Besuch unserer Website bedeutet, dass automatisch Log-Files auf dem Web-Server des Providers gespeichert werden. Diese Daten werden keiner bestimmten Person zugeordnet, sie beinhalten z. B. den Browsertyp und -version, verwendetes Betriebssystem, Referrer URL (die zuvor besuchte Seite), IP-Adresse des anfragenden Rechners, Zugriffsdatum und -uhrzeit der Serveranfrage und die Dateianfrage des Clients (Dateiname und URL). Diese Daten werden nur zum Zweck der statistischen Auswertung gesammelt. Eine Weitergabe an Dritte, zu kommerziellen oder nichtkommerziellen Zwecken, findet nicht statt. Die Erfassung der Daten zur Bereitstellung der Website und die Speicherung der Daten in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich. Es besteht folglich seitens des Nutzers keine Widerspruchsmöglichkeit.</p>
-            <p><b>6. Cookies</b></p>
-            <p>Unsere Website verwendet sog. “Session-Cookies”, um Ihren Besuch auf unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen. Dabei handelt es sich um kleine Textdateien, die nur für die Dauer Ihres Besuchs unserer Website auf Ihrer Festplatte hinterlegt und abhängig von der Einstellung Ihres Browser-Programms beim Beenden des Browsers wieder gelöscht werden. Diese Cookies rufen keine auf Ihrer Festplatte über Sie gespeicherten Informationen ab und beeinträchtigen Ihren PC oder Ihre Dateien nicht. Übliche Browser sind so eingestellt, dass sie Cookies automatisch akzeptieren. Sie können das Speichern von Cookies jedoch deaktivieren oder den Browser vorab so einstellen, dass er Sie auf die Sendung von Cookies hinweist.
- 
-            </p>
-            <p><b>7. Datenschutzbestimmungen zum Einsatz und Verwendung von Google maps</b></p>
-            <p>Zur Nutzung eines Kartendienstes auf unserer Website haben wir uns für Google Maps entschieden. Um die Funktionen von Google Maps nutzen zu können, ist es notwendig Ihre IP Adresse zu speichern. Diese Daten werden grundsätzlich an einen Server von Google in den USA übermittelt und dort gespeichert. Wir haben keinen Einfluss auf diese Datenübertragung. Die Verwendung von Google Maps erfolgt zur ansprechenden Darstellung und Auskünfte über unsere Website. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1f) DSGVO dar.</p>
-            
+                                    </p>
+                                    <p><b>2.4 Recht auf Löschung</b></p>
+                                    <p>Sie haben das Recht auf Löschung Ihrer personenbezogenen Daten, soweit keine gesetzlichen Aufbewahrungspflichten bestehen. Soweit eine solche Verpflichtung besteht, sperren wir Ihre Daten auf Wunsch. Liegen die entsprechenden gesetzlichen Voraussetzungen vor, werden wir auch ohne Vorliegen eines entsprechenden Verlangens Ihrerseits Ihre personenbezogenen Daten löschen.</p>
+                                    <p><b>2.5 Recht auf Datenübertragbarkeit</b></p>
+                                    <p>Sie haben das Recht, von uns die Bereitstellung der uns übermittelten personenbezogenen Daten zu verlangen, auch zum Zweck der Übermittlung in einem strukturierten Format an eine andere Organisation und Person.
+                                    </p>
+                                    <p><b>2.6 Beschwerderecht bei einer Aufsichtsbehörde</b></p>
+                                    <p>Sie haben das Recht, sich mit einer Beschwerde an die für uns zuständige Datenschutzbehörde zu wenden.</p>
+                                    <p><b>2.7 Widerspruchsrecht</b></p>
+                                    <p>Sie haben jederzeit die Möglichkeit, einer erteilten Einwilligung in die Nutzung Ihrer Daten mit Wirkung für die Zukunft zu widerrufen. Hierzu genügt es, eine entsprechende E-Mail an uns zu senden info@global-bike.de. Ein solcher Widerruf berührt allerdings nicht die Rechtmäßigkeit der bis dahin erfolgten Verarbeitungsvorgänge durch uns. Unberührt hiervon bleibt ebenfalls die Datenverarbeitung bzgl. aller sonstigen Rechtsgrundlagen, wie bspw. die Vertragsanbahnung (siehe oben).</p>
+                                    <p><b>3. Keine automatisierte Entscheidungsfindung</b></p>
+                                    <p>Wir weisen Sie darauf hin, dass Sie im Rahmen der Nutzung unserer Dienste und der Inanspruchnahme unserer Leistungen/Dienstleistung nicht einer ausschließlich auf einer automatisierten Verarbeitung – einschließlich Profiling – beruhenden Entscheidung unterworfen werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigen.</p>
+                                    <p><b>4. Wie sichern wir Ihre Daten:</b></p>
+                                    <p>Die uns zur Verfügung gestellten persönlichen Daten werden durch Ergreifung aller technischen als auch organisatorischen Sicherheitsmaßnahmen gesichert, so dass sie für den Zugriff unberechtigter Dritter unzugänglich sind.</p>
+                                    <p><b>4.1 Datensicherheit und –schutz, E-Mail Verkehr, Kontaktformular</b></p>
+                                    <p>Nutzen Sie elektronische Hilfsmittel um mit uns in Kontakt zu treten, werden die Daten von Ihnen erhoben, die Sie uns aktiv zur Verfügung stellen. Bei der Nutzung des Kontaktformulars auf unserer Website wird darüber hinaus Ihre IP-Adresse inkl. Datum und Uhrzeit gespeichert. Zum Zweck des Absende Vorganges wird Ihre Einwilligung eingeholt, welche Sie aktiv bestätigen müssen und es wird auf unsere Datenschutzerklärung verwiesen. Soweit Sie uns eine E-Mail senden, werden personenbezogene Daten gespeichert, die Sie innerhalb der Nachricht angeben. Die Verarbeitung erfolgt nur zum Zwecke der Kommunikation mit Ihnen. Ihre personenbezogenen Daten werden durch Ergreifung unserer technischen und organisatorischen Möglichkeiten so gespeichert, dass sie für Dritte nicht zugänglich sind. Bei der Kommunikation per E-Mail kann die vollständige Datensicherheit von uns nicht gewährleistet werden, sodass wir Ihnen bei Informationen mit hohem Geheimhaltungsbedürfnis die Verschlüsselung Ihre Daten und/oder den Postweg empfehlen.</p>
+                                    <p><b>4.2. SSL- bzw. TLS-Verschlüsselung</b></p>
+                                    <p>Unsere Internetseite nutzt zur Sicherung der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen, die Sie an uns senden, eine SSL-bzw. TLS-Verschlüsselung. Das erkennen Sie an dem grünen Schloss in der Adresszeile des Browsers und an dem Wechsel von “http://” auf “https://” in Ihrer Browserzeile. Bei aktivierter SSL- bzw. TLS-Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
+                                    <p><b>5. Datenspeicherung</b></p>
+                                    <p>Der Besuch unserer Website bedeutet, dass automatisch Log-Files auf dem Web-Server des Providers gespeichert werden. Diese Daten werden keiner bestimmten Person zugeordnet, sie beinhalten z. B. den Browsertyp und -version, verwendetes Betriebssystem, Referrer URL (die zuvor besuchte Seite), IP-Adresse des anfragenden Rechners, Zugriffsdatum und -uhrzeit der Serveranfrage und die Dateianfrage des Clients (Dateiname und URL). Diese Daten werden nur zum Zweck der statistischen Auswertung gesammelt. Eine Weitergabe an Dritte, zu kommerziellen oder nichtkommerziellen Zwecken, findet nicht statt. Die Erfassung der Daten zur Bereitstellung der Website und die Speicherung der Daten in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich. Es besteht folglich seitens des Nutzers keine Widerspruchsmöglichkeit.</p>
+                                    <p><b>6. Cookies</b></p>
+                                    <p>Unsere Website verwendet sog. “Session-Cookies”, um Ihren Besuch auf unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen. Dabei handelt es sich um kleine Textdateien, die nur für die Dauer Ihres Besuchs unserer Website auf Ihrer Festplatte hinterlegt und abhängig von der Einstellung Ihres Browser-Programms beim Beenden des Browsers wieder gelöscht werden. Diese Cookies rufen keine auf Ihrer Festplatte über Sie gespeicherten Informationen ab und beeinträchtigen Ihren PC oder Ihre Dateien nicht. Übliche Browser sind so eingestellt, dass sie Cookies automatisch akzeptieren. Sie können das Speichern von Cookies jedoch deaktivieren oder den Browser vorab so einstellen, dass er Sie auf die Sendung von Cookies hinweist.
+                        
+                                    </p>
+                                    <p><b>7. Datenschutzbestimmungen zum Einsatz und Verwendung von Google maps</b></p>
+                                    <p>Zur Nutzung eines Kartendienstes auf unserer Website haben wir uns für Google Maps entschieden. Um die Funktionen von Google Maps nutzen zu können, ist es notwendig Ihre IP Adresse zu speichern. Diese Daten werden grundsätzlich an einen Server von Google in den USA übermittelt und dort gespeichert. Wir haben keinen Einfluss auf diese Datenübertragung. Die Verwendung von Google Maps erfolgt zur ansprechenden Darstellung und Auskünfte über unsere Website. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1f) DSGVO dar.</p>
+                                    
 </body>
 
 </html>
