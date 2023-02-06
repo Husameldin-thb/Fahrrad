@@ -5,10 +5,12 @@ let app = express();
 let bodyParser = require('body-parser');
 let db = require("./db");
 
-let idCounter = 0;
-let customers = new Array ();
-let sessionHandler = new Array ();
-let customerHandler = new Array ();
+//let idCounter = 0;
+//let customers = new Array ();
+let sessionHandler = new Array (); //aktuelle Sitzung speichern: Index[0]: Datum, Index[1]: Anzahl der Fahrräder, Index[2]: Fahrrad-ID
+let customerHandler = new Array (); //aktuellen Customer speichern
+
+//Array, in dem Rezensionen gespeichert werden inkl. "Muster-Rezensionen"
 let savedFeedbacks = [
 	{
 		name: "Marius H.",
@@ -24,6 +26,7 @@ let savedFeedbacks = [
 	}
 ];
 
+//Server erstellen
 app.use(bodyParser.urlencoded({enxtended: true}));
 app.use(bodyParser.json());
 
@@ -33,6 +36,7 @@ let server = app.listen(8080, function () {
 	console.log("Webserver is running on port " + port);
 });
 
+//Verfügbarkeit eines Fahrrad an einem übergebenen Datum prüfen
 app.post('/api/v1/checkAvailability', (req, res) => {
 	let number = new Array ();
 	console.log(req.body);
@@ -42,11 +46,10 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 		}
 		number = row;
 		console.log(row);
-		console.log(row[0].num);
-		if(row[0].num == 0){
+		if(row[0].num == 0){ //Wenn Anzahl 0 = Fahrrad nicht mehr verfügbar
 			sessionHandler.push(req.body.data, row[0].num, req.body.id);
 			return res.send("0");
-		} else if(row[0].num == null) {
+		} else if(row[0].num == null) { //Wenn keine Buchungen gefunden = Fahrrad noch 10 Mal verfügbar
 			sessionHandler.push(req.body.data, 10, req.body.id);
 			return res.send("1");
 		}
@@ -61,34 +64,26 @@ app.post('/api/v1/checkAvailability', (req, res) => {
 app.post('/api/v1/session', (req, res) => {
 	console.log(sessionHandler);
 	return res.send(sessionHandler);
-	//return sessionHandler.length = 0;
 })
 
+//Buchung in DB speichern
 app.post('/api/v1/booking', (req, res) => {
 	console.log(req.body);
-	console.log(sessionHandler);
-	//let iiii = new Array();
 	let content = "0";
-	db.get(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => {
+	db.get(`SELECT * FROM customers WHERE email = "${req.body.email}"`, (error, row) => { //Prüfen, ob Kunde bereits vorhanden ist
 		if (error) {
 			throw new Error(error.message);
 		}
 		return row
 			? content = "1"
 			: console.log("empty");
-		//iiii = row;
-		//console.log(row);
 	});
-	//console.log(iiii);
-	if(req.body.number > sessionHandler[1]){
+	if(req.body.number > sessionHandler[1]){ //Falls Anzahl größer als verfügbare Anzahl
 		sessionHandler.length = 0;
 		return res.send("0")
 	}
 	else{
-		//if(iiii.length < 1 || iiii == undefined) {
-		if(content == "0") {	
-			//Customer ID schon vorhanden
-			//bike_id, number, date bei dem Customer einfügen
+		if(content == "0") { //Wenn Kunde noch nicht in DB	
 			db.run(
 				`INSERT INTO customers (customer_id, name, email, password) VALUES (?, ?, ?, ?)`, 
 				[null, req.body.name, req.body.email, req.body.password],
@@ -110,7 +105,7 @@ app.post('/api/v1/booking', (req, res) => {
 				}
 			);
 		}
-		else{
+		else{ //Wenn Kunde schon in DB vorhanden, dann nur noch Buchunng in DB speichern
 			db.run(
 				`INSERT INTO bookings (bookings_id, bike_id, booking_date, number, email) VALUES (?, ?, ?, ?, ?)`, 
 				[null, sessionHandler[2], sessionHandler[0], req.body.number, req.body.email],
@@ -123,11 +118,11 @@ app.post('/api/v1/booking', (req, res) => {
 			);
 		}
 	}
-	sessionHandler.length = 0;
+	sessionHandler.length = 0; //Buchung erfolgreich: sessionHandler leeren
 	return res.send("1");
 })
 
-//get alternative bikes from db
+//Alternativen in DB ausgeben, wenn gewünschtes Fahrrad nicht verfügbar ist
 app.post('/api/v1/alternatives', (req, res) => {
 	console.log(sessionHandler);
 	db.all(`SELECT 10-SUM(number) AS num, bike_id FROM bookings WHERE booking_date = "${sessionHandler[0]}" GROUP BY bike_id`, (error, row) => {
@@ -136,9 +131,10 @@ app.post('/api/v1/alternatives', (req, res) => {
 		}
 		return res.send(row);
 	});
-	sessionHandler.length = 0;
+	sessionHandler.length = 0; //Alternativen ausgegeben: sessionHandler leeren
 });
 
+//Login-Daten prüfen
 app.post('/api/v1/login', (req, res) => {
 	console.log(req.body);
 	db.get(`SELECT * FROM customers WHERE email = "${req.body.email}" AND password = "${req.body.password}"`, (error, row) => {
@@ -148,11 +144,12 @@ app.post('/api/v1/login', (req, res) => {
 		customerHandler.push(row);
 		console.log(customerHandler);
 		return row
-			? res.send("1")
-			: res.send("0");
+			? res.send("1") //Login-Daten gefunden bzw. korrekt
+			: res.send("0"); //Login-Daten falsch bzw. nicht gefunden
 	});
 });
 
+//Passwort zu einer übergebenen E-Mail abfragen
 app.post('/api/v1/pw', (req, res) => {
 	console.log(req.body);
 	db.get(`SELECT password FROM customers WHERE email = ?`, [req.body.email], (error, row) => {
@@ -165,6 +162,7 @@ app.post('/api/v1/pw', (req, res) => {
 	});
 });
 
+//Buchungen eines Kunden anhand dessen E-Mail-Adresse von DB abfragen
 app.post('/api/v1/myBookings', (req, res) => {
 	console.log(customerHandler[0].email);
 	if(customerHandler.length == 0) {
@@ -179,6 +177,7 @@ app.post('/api/v1/myBookings', (req, res) => {
 	}
 });
 
+//Buchung stornieren anhand der übergebenen Buchungs-ID
 app.post('/api/v1/deleteBooking', (req, res) => {
 	console.log(req.body.bookings_id);
 	db.run(
@@ -194,27 +193,29 @@ app.post('/api/v1/deleteBooking', (req, res) => {
 	return res.send(true);
 });
 
+//Kunden ausloggen
 app.post('/api/v1/logout', (req, res) => {
-	customerHandler.length = 0;
+	customerHandler.length = 0; //customerHandler leeren
 	return res.send(true);
 });
 
+//Rezensionen ausgeben und speichern
 app.post('/api/v1/feedback', (req, res) => {
-	console.log(req.body); 
 	console.log(Object.keys(req.body).length);
-	if(Object.keys(req.body).length === 0){
+	if(Object.keys(req.body).length === 0){ //wenn keine JSON übergeben wurde, Rezensionen übermitteln
 		return res.send(savedFeedbacks);
-	} else {
+	} else { //Wenn JSON übergeben, dann enthaltene Werte als Rezension speichern
 		let setFeedback = {
 			name: req.body.name,
 			feedback: req.body.content
 		};
 		console.log(savedFeedbacks);
-		savedFeedbacks.unshift(setFeedback);
-		return res.send(savedFeedbacks);
+		savedFeedbacks.unshift(setFeedback); //Rezension an vorderster Stelle des Arrays der gespeicherten Rezensionen einfügen
+		return res.send(savedFeedbacks); //Rezensionen zurückgeben
 	}
 });
 
+//Prüfen, ob Kunde eingeloggt, also customerHandler nicht leer ist
 app.post('/api/v1/getStatusOfCustomerLogin', (req, res) => {
 	console.log(customerHandler.length);
 	if(customerHandler.length === 0){

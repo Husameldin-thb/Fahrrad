@@ -19,9 +19,8 @@ function createDbConnection() {
 }
 
 //Tabellen erstellen 
-//Customer (Customer_ID (Primärschlüssel, Zahl), Name (Zeichenkette), Email (Zeichenkette), Passwort (Zeichenkette))
-//Buchungen (Bookings_ID (Primärschlüssel, Zahl), Fahrrad_ID (Zahl), Buchungsdatum (Zeichenkette), Anzahl an Fahrrädern (Zahl), Email (Fremdschlüssel, Zeichenkette))
 function createTable(db) {
+    //Kundentabelle
     db.exec(`
         CREATE TABLE customers (
             customer_id INTEGER NOT NULL PRIMARY KEY,
@@ -30,6 +29,7 @@ function createTable(db) {
             password VARCHAR(50) NOT NULL
         );
     `);
+    //Buchungstabelle
     db.exec(`
         CREATE TABLE bookings (
             bookings_id INTEGER NOT NULL,
