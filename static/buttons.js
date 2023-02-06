@@ -271,7 +271,6 @@ function getFeedback(){
     axios.post('/api/v1/feedback', )
     .then(function (res) {
         console.log(res);
-        console.log(res.data[1].feedback);
         while(i < 3){ //die ersten 3 ("neuesten") Rezensionen werden ausgegeben auf index.html
             review += "<blockquote class='blockquote text-center'><p class='mb-0'>";
             review += res.data[i].feedback.toString();
