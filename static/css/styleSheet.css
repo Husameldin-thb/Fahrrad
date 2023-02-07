@@ -41,7 +41,7 @@ section{
     font-size: 1.7rem;
     color: rgb(0, 0, 0);
     text-decoration: none;
-    background-color: #283042;
+    background-color: #88898b;
     width: 100%;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ color: #e7d5ff;
     max-height: 0;
     overflow: hidden;
     position: relative;
-    background-color: #212838;
+    background-color: #535353;
     transition: max-height 600ms;
 }
 .answer::before{
