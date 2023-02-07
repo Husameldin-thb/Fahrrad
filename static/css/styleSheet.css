@@ -14,6 +14,14 @@ html{
     box-sizing: border-box;
 }
 
+.uppersection{
+    width: 100%;
+    height: 30vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /*Section fürs Zentrieren*/
 section{
     width: 100%;
