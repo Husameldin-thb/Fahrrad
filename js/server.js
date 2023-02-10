@@ -5,8 +5,6 @@ let app = express();
 let bodyParser = require('body-parser');
 let db = require("./db");
 
-//let idCounter = 0;
-//let customers = new Array ();
 let sessionHandler = new Array (); //aktuelle Sitzung speichern: Index[0]: Datum, Index[1]: Anzahl der Fahrräder, Index[2]: Fahrrad-ID
 let customerHandler = new Array (); //aktuellen Customer speichern
 
